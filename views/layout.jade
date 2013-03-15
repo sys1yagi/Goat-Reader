@@ -1,7 +1,11 @@
 doctype 5
 html
-  head
-    title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
-  body
-    block content
+    head
+        title= title
+        link(rel='stylesheet', href='/stylesheets/style.css')
+        script(src='components/bootstrap.css/css/bootstrap.css')
+        script(src='components/jquery/jquery.js')
+        script(src='/socket.io/socket.io.js', type='text/javascript')
+
+        body
+        block content

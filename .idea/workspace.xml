@@ -9,6 +9,94 @@
     <file path="/component.json.json" changelist="7c869ab0-bff6-4bac-8901-41a3899c458e" time="1363319932134" ignored="false" />
     <file path="/api.js" changelist="7c869ab0-bff6-4bac-8901-41a3899c458e" time="1363320332165" ignored="false" />
     <file path="/component.json" changelist="7c869ab0-bff6-4bac-8901-41a3899c458e" time="1363320399681" ignored="false" />
+    <file path="$PROJECT_DIR$/node_modules/express/node_modules/connect/lib/middleware/logger.js" changelist="7c869ab0-bff6-4bac-8901-41a3899c458e" time="1363321029126" ignored="false" />
+    <file path="$PROJECT_DIR$/node_modules/mongoose/node_modules/mongodb/node_modules/bson/browser_build/bson.js" changelist="7c869ab0-bff6-4bac-8901-41a3899c458e" time="1363321029126" ignored="false" />
+    <file path="$PROJECT_DIR$/node_modules/express/node_modules/commander/lib/commander.js" changelist="7c869ab0-bff6-4bac-8901-41a3899c458e" time="1363321029126" ignored="false" />
+    <file path="$PROJECT_DIR$/node_modules/express/node_modules/connect/lib/middleware/session.js" changelist="7c869ab0-bff6-4bac-8901-41a3899c458e" time="1363321032516" ignored="false" />
+    <file path="$PROJECT_DIR$/node_modules/forever/node_modules/nconf/test/hierarchy-test.js" changelist="7c869ab0-bff6-4bac-8901-41a3899c458e" time="1363321029126" ignored="false" />
+    <file path="$PROJECT_DIR$/node_modules/express/node_modules/connect/lib/middleware/bodyParser.js" changelist="7c869ab0-bff6-4bac-8901-41a3899c458e" time="1363321029126" ignored="false" />
+    <file path="$PROJECT_DIR$/node_modules/forever/lib/forever.js" changelist="7c869ab0-bff6-4bac-8901-41a3899c458e" time="1363321029126" ignored="false" />
+    <file path="$PROJECT_DIR$/node_modules/forever/node_modules/flatiron/lib/flatiron/cli/create.js" changelist="7c869ab0-bff6-4bac-8901-41a3899c458e" time="1363321029126" ignored="false" />
+    <file path="$PROJECT_DIR$/node_modules/forever/lib/forever/cli.js" changelist="7c869ab0-bff6-4bac-8901-41a3899c458e" time="1363321029126" ignored="false" />
+    <file path="$PROJECT_DIR$/node_modules/forever/node_modules/winston/examples/couchdb.js" changelist="7c869ab0-bff6-4bac-8901-41a3899c458e" time="1363321029126" ignored="false" />
+    <file path="$PROJECT_DIR$/node_modules/express/node_modules/connect/node_modules/qs/examples.js" changelist="7c869ab0-bff6-4bac-8901-41a3899c458e" time="1363321029126" ignored="false" />
+    <file path="$PROJECT_DIR$/node_modules/forever/node_modules/flatiron/lib/flatiron/plugins/cli.js" changelist="7c869ab0-bff6-4bac-8901-41a3899c458e" time="1363321029126" ignored="false" />
+    <file path="$PROJECT_DIR$/node_modules/express/node_modules/connect/node_modules/qs/benchmark.js" changelist="7c869ab0-bff6-4bac-8901-41a3899c458e" time="1363321029126" ignored="false" />
+    <file path="$PROJECT_DIR$/node_modules/socket.io/node_modules/socket.io-client/lib/util.js" changelist="7c869ab0-bff6-4bac-8901-41a3899c458e" time="1363321029126" ignored="false" />
+    <file path="$PROJECT_DIR$/node_modules/express/node_modules/connect/node_modules/qs/test/parse.js" changelist="7c869ab0-bff6-4bac-8901-41a3899c458e" time="1363321029126" ignored="false" />
+    <file path="$PROJECT_DIR$/node_modules/express/node_modules/connect/node_modules/qs/test/stringify.js" changelist="7c869ab0-bff6-4bac-8901-41a3899c458e" time="1363321029126" ignored="false" />
+    <file path="$PROJECT_DIR$/node_modules/mongoose/node_modules/muri/test/index.js" changelist="7c869ab0-bff6-4bac-8901-41a3899c458e" time="1363321029126" ignored="false" />
+    <file path="$PROJECT_DIR$/node_modules/jade/node_modules/commander/lib/commander.js" changelist="7c869ab0-bff6-4bac-8901-41a3899c458e" time="1363321029126" ignored="false" />
+    <file path="$PROJECT_DIR$/node_modules/express/node_modules/connect/node_modules/qs/test/browser/jquery.js" changelist="7c869ab0-bff6-4bac-8901-41a3899c458e" time="1363321029126" ignored="false" />
+    <file path="$PROJECT_DIR$/node_modules/express/node_modules/connect/node_modules/qs/test/browser/mocha.js" changelist="7c869ab0-bff6-4bac-8901-41a3899c458e" time="1363321029126" ignored="false" />
+    <file path="$PROJECT_DIR$/node_modules/forever/node_modules/forever-monitor/node_modules/broadway/node_modules/nconf/usage.js" changelist="7c869ab0-bff6-4bac-8901-41a3899c458e" time="1363321029126" ignored="false" />
+    <file path="$PROJECT_DIR$/node_modules/express/node_modules/connect/node_modules/qs/test/browser/expect.js" changelist="7c869ab0-bff6-4bac-8901-41a3899c458e" time="1363321029126" ignored="false" />
+    <file path="$PROJECT_DIR$/node_modules/mongoose/node_modules/ms/test/support/jquery.js" changelist="7c869ab0-bff6-4bac-8901-41a3899c458e" time="1363321029126" ignored="false" />
+    <file path="$PROJECT_DIR$/node_modules/express/lib/utils.js" changelist="7c869ab0-bff6-4bac-8901-41a3899c458e" time="1363321029126" ignored="false" />
+    <file path="$PROJECT_DIR$/node_modules/express/lib/request.js" changelist="7c869ab0-bff6-4bac-8901-41a3899c458e" time="1363321029126" ignored="false" />
+    <file path="$PROJECT_DIR$/node_modules/tsd/node_modules/request/node_modules/qs/benchmark.js" changelist="7c869ab0-bff6-4bac-8901-41a3899c458e" time="1363321029126" ignored="false" />
+    <file path="$PROJECT_DIR$/node_modules/socket.io/node_modules/socket.io-client/lib/transports/jsonp-polling.js" changelist="7c869ab0-bff6-4bac-8901-41a3899c458e" time="1363321029126" ignored="false" />
+    <file path="$PROJECT_DIR$/node_modules/tsd/node_modules/request/node_modules/qs/examples.js" changelist="7c869ab0-bff6-4bac-8901-41a3899c458e" time="1363321029126" ignored="false" />
+    <file path="$PROJECT_DIR$/node_modules/express/lib/application.js" changelist="7c869ab0-bff6-4bac-8901-41a3899c458e" time="1363321029126" ignored="false" />
+    <file path="$PROJECT_DIR$/node_modules/mongoose/node_modules/mongodb/lib/mongodb/connection/url_parser.js" changelist="7c869ab0-bff6-4bac-8901-41a3899c458e" time="1363321029126" ignored="false" />
+    <file path="$PROJECT_DIR$/node_modules/socket.io/node_modules/socket.io-client/dist/socket.io.js" changelist="7c869ab0-bff6-4bac-8901-41a3899c458e" time="1363321029126" ignored="false" />
+    <file path="$PROJECT_DIR$/node_modules/express/lib/response.js" changelist="7c869ab0-bff6-4bac-8901-41a3899c458e" time="1363321029126" ignored="false" />
+    <file path="$PROJECT_DIR$/node_modules/socket.io/node_modules/socket.io-client/dist/socket.io.min.js" changelist="7c869ab0-bff6-4bac-8901-41a3899c458e" time="1363321029126" ignored="false" />
+    <file path="$PROJECT_DIR$/node_modules/forever/node_modules/winston/node_modules/request/main.js" changelist="7c869ab0-bff6-4bac-8901-41a3899c458e" time="1363321029126" ignored="false" />
+    <file path="$PROJECT_DIR$/node_modules/tsd/node_modules/request/node_modules/qs/test/parse.js" changelist="7c869ab0-bff6-4bac-8901-41a3899c458e" time="1363321029126" ignored="false" />
+    <file path="$PROJECT_DIR$/node_modules/tsd/node_modules/request/node_modules/qs/test/stringify.js" changelist="7c869ab0-bff6-4bac-8901-41a3899c458e" time="1363321029126" ignored="false" />
+    <file path="$PROJECT_DIR$/node_modules/tsd/node_modules/request/node_modules/qs/test/browser/jquery.js" changelist="7c869ab0-bff6-4bac-8901-41a3899c458e" time="1363321029126" ignored="false" />
+    <file path="$PROJECT_DIR$/node_modules/tsd/node_modules/request/node_modules/qs/test/browser/mocha.js" changelist="7c869ab0-bff6-4bac-8901-41a3899c458e" time="1363321029126" ignored="false" />
+    <file path="$PROJECT_DIR$/node_modules/express/node_modules/connect/node_modules/formidable/lib/incoming_form.js" changelist="7c869ab0-bff6-4bac-8901-41a3899c458e" time="1363321029126" ignored="false" />
+    <file path="$PROJECT_DIR$/node_modules/forever/node_modules/forever-monitor/node_modules/broadway/node_modules/nconf/test/hierarchy-test.js" changelist="7c869ab0-bff6-4bac-8901-41a3899c458e" time="1363321029126" ignored="false" />
+    <file path="$PROJECT_DIR$/node_modules/socket.io/node_modules/socket.io-client/node_modules/ws/node_modules/commander/lib/commander.js" changelist="7c869ab0-bff6-4bac-8901-41a3899c458e" time="1363321029126" ignored="false" />
+    <file path="$PROJECT_DIR$/node_modules/tsd/node_modules/request/node_modules/qs/test/browser/expect.js" changelist="7c869ab0-bff6-4bac-8901-41a3899c458e" time="1363321029126" ignored="false" />
+    <file path="$PROJECT_DIR$/node_modules/tsd/src/Util/ANSIFormat.ts" changelist="7c869ab0-bff6-4bac-8901-41a3899c458e" time="1363321029126" ignored="false" />
+    <file path="$PROJECT_DIR$/node_modules/socket.io/node_modules/socket.io-client/node_modules/xmlhttprequest/lib/XMLHttpRequest.js" changelist="7c869ab0-bff6-4bac-8901-41a3899c458e" time="1363321029126" ignored="false" />
+    <file path="$PROJECT_DIR$/node_modules/socket.io/node_modules/socket.io-client/node_modules/xmlhttprequest/tests/test-exceptions.js" changelist="7c869ab0-bff6-4bac-8901-41a3899c458e" time="1363321029126" ignored="false" />
+    <file path="$PROJECT_DIR$/node_modules/forever/node_modules/flatiron/node_modules/prompt/lib/prompt.js" changelist="7c869ab0-bff6-4bac-8901-41a3899c458e" time="1363321029126" ignored="false" />
+    <file path="$PROJECT_DIR$/node_modules/tsd/src/System/Uri.ts" changelist="7c869ab0-bff6-4bac-8901-41a3899c458e" time="1363321029126" ignored="false" />
+    <file path="$PROJECT_DIR$/node_modules/mongoose/lib/document.js" changelist="7c869ab0-bff6-4bac-8901-41a3899c458e" time="1363321029126" ignored="false" />
+    <file path="$PROJECT_DIR$/node_modules/forever/node_modules/flatiron/node_modules/prompt/test/prompt-test.js" changelist="7c869ab0-bff6-4bac-8901-41a3899c458e" time="1363321029126" ignored="false" />
+    <file path="$PROJECT_DIR$/node_modules/mongoose/lib/connection.js" changelist="7c869ab0-bff6-4bac-8901-41a3899c458e" time="1363321029126" ignored="false" />
+    <file path="$PROJECT_DIR$/node_modules/jade/jade.js" changelist="7c869ab0-bff6-4bac-8901-41a3899c458e" time="1363321029126" ignored="false" />
+    <file path="$PROJECT_DIR$/node_modules/mongoose/node_modules/mongodb/node_modules/bson/lib/bson/binary.js" changelist="7c869ab0-bff6-4bac-8901-41a3899c458e" time="1363321029126" ignored="false" />
+    <file path="$PROJECT_DIR$/node_modules/forever/node_modules/flatiron/node_modules/prompt/examples/existing-properties.js" changelist="7c869ab0-bff6-4bac-8901-41a3899c458e" time="1363321029126" ignored="false" />
+    <file path="$PROJECT_DIR$/node_modules/forever/node_modules/flatiron/node_modules/prompt/examples/history.js" changelist="7c869ab0-bff6-4bac-8901-41a3899c458e" time="1363321029126" ignored="false" />
+    <file path="$PROJECT_DIR$/node_modules/mongoose/lib/index.js" changelist="7c869ab0-bff6-4bac-8901-41a3899c458e" time="1363321029126" ignored="false" />
+    <file path="$PROJECT_DIR$/node_modules/forever/node_modules/flatiron/node_modules/prompt/examples/property-prompt.js" changelist="7c869ab0-bff6-4bac-8901-41a3899c458e" time="1363321029126" ignored="false" />
+    <file path="$PROJECT_DIR$/node_modules/mongoose/lib/query.js" changelist="7c869ab0-bff6-4bac-8901-41a3899c458e" time="1363321029126" ignored="false" />
+    <file path="$PROJECT_DIR$/node_modules/forever/node_modules/flatiron/node_modules/prompt/examples/prompt-override.js" changelist="7c869ab0-bff6-4bac-8901-41a3899c458e" time="1363321029126" ignored="false" />
+    <file path="$PROJECT_DIR$/node_modules/tsd/node_modules/request/node_modules/hawk/lib/server.js" changelist="7c869ab0-bff6-4bac-8901-41a3899c458e" time="1363321029126" ignored="false" />
+    <file path="$PROJECT_DIR$/node_modules/forever/node_modules/flatiron/node_modules/prompt/examples/password.js" changelist="7c869ab0-bff6-4bac-8901-41a3899c458e" time="1363321029127" ignored="false" />
+    <file path="$PROJECT_DIR$/node_modules/forever/node_modules/flatiron/node_modules/prompt/examples/simple-prompt.js" changelist="7c869ab0-bff6-4bac-8901-41a3899c458e" time="1363321029127" ignored="false" />
+    <file path="$PROJECT_DIR$/node_modules/forever/node_modules/flatiron/node_modules/prompt/examples/old-schema.js" changelist="7c869ab0-bff6-4bac-8901-41a3899c458e" time="1363321029127" ignored="false" />
+    <file path="$PROJECT_DIR$/node_modules/tsd/node_modules/request/node_modules/hawk/test/server.js" changelist="7c869ab0-bff6-4bac-8901-41a3899c458e" time="1363321029127" ignored="false" />
+    <file path="$PROJECT_DIR$/node_modules/socket.io/node_modules/socket.io-client/node_modules/ws/lib/WebSocket.js" changelist="7c869ab0-bff6-4bac-8901-41a3899c458e" time="1363321029127" ignored="false" />
+    <file path="$PROJECT_DIR$/node_modules/mongoose/node_modules/mongodb/lib/mongodb/admin.js" changelist="7c869ab0-bff6-4bac-8901-41a3899c458e" time="1363321029127" ignored="false" />
+    <file path="$PROJECT_DIR$/node_modules/socket.io/node_modules/socket.io-client/node_modules/uglify-js/tmp/uglify-hangs.js" changelist="7c869ab0-bff6-4bac-8901-41a3899c458e" time="1363321029127" ignored="false" />
+    <file path="$PROJECT_DIR$/node_modules/mongoose/node_modules/mongodb/lib/mongodb/db.js" changelist="7c869ab0-bff6-4bac-8901-41a3899c458e" time="1363321029127" ignored="false" />
+    <file path="$PROJECT_DIR$/node_modules/forever/node_modules/nconf/usage.js" changelist="7c869ab0-bff6-4bac-8901-41a3899c458e" time="1363321029127" ignored="false" />
+    <file path="$PROJECT_DIR$/node_modules/jade/lib/nodes/attrs.js" changelist="7c869ab0-bff6-4bac-8901-41a3899c458e" time="1363321029127" ignored="false" />
+    <file path="$PROJECT_DIR$/node_modules/socket.io/node_modules/socket.io-client/lib/vendor/web-socket-js/flash-src/com/hurlant/crypto/tls/TLSEngine.as" changelist="7c869ab0-bff6-4bac-8901-41a3899c458e" time="1363321036810" ignored="false" />
+    <file path="$PROJECT_DIR$/node_modules/socket.io/node_modules/socket.io-client/node_modules/uglify-js/tmp/app.js" changelist="7c869ab0-bff6-4bac-8901-41a3899c458e" time="1363321029127" ignored="false" />
+    <file path="$PROJECT_DIR$/node_modules/forever/node_modules/flatiron/node_modules/prompt/node_modules/read/test/basic.js" changelist="7c869ab0-bff6-4bac-8901-41a3899c458e" time="1363321029127" ignored="false" />
+    <file path="$PROJECT_DIR$/node_modules/forever/node_modules/flatiron/node_modules/prompt/node_modules/read/example/example.js" changelist="7c869ab0-bff6-4bac-8901-41a3899c458e" time="1363321029127" ignored="false" />
+    <file path="$PROJECT_DIR$/node_modules/mongoose/node_modules/mongodb/lib/mongodb/collection.js" changelist="7c869ab0-bff6-4bac-8901-41a3899c458e" time="1363321029127" ignored="false" />
+    <file path="$PROJECT_DIR$/node_modules/mongoose/lib/schematype.js" changelist="7c869ab0-bff6-4bac-8901-41a3899c458e" time="1363321029127" ignored="false" />
+    <file path="$PROJECT_DIR$/node_modules/socket.io/node_modules/socket.io-client/lib/vendor/web-socket-js/flash-src/com/hurlant/crypto/tls/TLSSecurityParameters.as" changelist="7c869ab0-bff6-4bac-8901-41a3899c458e" time="1363321029127" ignored="false" />
+    <file path="$PROJECT_DIR$/node_modules/tsd/deploy/tsd.js" changelist="7c869ab0-bff6-4bac-8901-41a3899c458e" time="1363321032516" ignored="false" />
+    <file path="$PROJECT_DIR$/node_modules/mongoose/node_modules/mongodb/lib/mongodb/mongo_client.js" changelist="7c869ab0-bff6-4bac-8901-41a3899c458e" time="1363321029127" ignored="false" />
+    <file path="$PROJECT_DIR$/node_modules/mongoose/node_modules/mongodb/lib/mongodb/gridfs/gridstore.js" changelist="7c869ab0-bff6-4bac-8901-41a3899c458e" time="1363321029127" ignored="false" />
+    <file path="$PROJECT_DIR$/node_modules/tsd/node_modules/request/index.js" changelist="7c869ab0-bff6-4bac-8901-41a3899c458e" time="1363321029127" ignored="false" />
+    <file path="$PROJECT_DIR$/node_modules/mongoose/node_modules/mongodb/lib/mongodb/gridfs/grid.js" changelist="7c869ab0-bff6-4bac-8901-41a3899c458e" time="1363321029127" ignored="false" />
+    <file path="$PROJECT_DIR$/node_modules/tsd/node_modules/request/node_modules/hawk/node_modules/boom/lib/index.js" changelist="7c869ab0-bff6-4bac-8901-41a3899c458e" time="1363321029127" ignored="false" />
+    <file path="$PROJECT_DIR$/node_modules/socket.io/node_modules/redis/index.js" changelist="7c869ab0-bff6-4bac-8901-41a3899c458e" time="1363321029127" ignored="false" />
+    <file path="$PROJECT_DIR$/node_modules/mongoose/node_modules/mongodb/lib/mongodb/connection/connection_pool.js" changelist="7c869ab0-bff6-4bac-8901-41a3899c458e" time="1363321029127" ignored="false" />
+    <file path="$PROJECT_DIR$/node_modules/mongoose/lib/model.js" changelist="7c869ab0-bff6-4bac-8901-41a3899c458e" time="1363321029127" ignored="false" />
+    <file path="$PROJECT_DIR$/node_modules/express/node_modules/connect/lib/middleware/basicAuth.js" changelist="7c869ab0-bff6-4bac-8901-41a3899c458e" time="1363321029127" ignored="false" />
+    <file path="/app.js" changelist="7c869ab0-bff6-4bac-8901-41a3899c458e" time="1363321299746" ignored="false" />
+    <file path="/index.jade" changelist="7c869ab0-bff6-4bac-8901-41a3899c458e" time="1363321626399" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,37 +116,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="package.json" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/package.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="20" selection-start="273" selection-end="273" vertical-scroll-proportion="0.32490975">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="user.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/routes/user.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="0" selection-start="31" selection-end="107" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="api.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/api.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="40" column="9" selection-start="681" selection-end="681" vertical-scroll-proportion="0.0">
+            <state line="39" column="9" selection-start="671" selection-end="671" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="component.json" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/component.json">
+      <file leaf-file-name="app.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="20" selection-start="124" selection-end="124" vertical-scroll-proportion="-3.125">
+            <state line="44" column="6" selection-start="1142" selection-end="1142" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -73,10 +143,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app.js">
+      <file leaf-file-name="index.jade" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/views/index.jade">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="25" column="3" selection-start="663" selection-end="663" vertical-scroll-proportion="0.0">
+            <state line="3" column="5" selection-start="35" selection-end="35" vertical-scroll-proportion="0.07785467">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="layout.jade" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/layout.jade">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="7" column="43" selection-start="265" selection-end="265" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -98,6 +177,9 @@
         <option value="$PROJECT_DIR$/routes/api.js" />
         <option value="$PROJECT_DIR$/public/component.json" />
         <option value="$PROJECT_DIR$/package.json" />
+        <option value="$PROJECT_DIR$/app.js" />
+        <option value="$PROJECT_DIR$/views/layout.jade" />
+        <option value="$PROJECT_DIR$/views/index.jade" />
       </list>
     </option>
   </component>
@@ -160,6 +242,20 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="proj" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="goat_reader" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="routes" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -188,15 +284,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="components" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jquery" />
+              <option name="myItemId" value="node_modules" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -210,15 +298,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
+              <option name="myItemId" value="node_modules" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="components" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bootstrap.css" />
+              <option name="myItemId" value="socket.io" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -263,6 +347,7 @@
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32964602" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24984913" sideWeight="0.670354" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -273,7 +358,6 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -340,16 +424,9 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app.js">
+    <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="3" selection-start="663" selection-end="663" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+        <state line="15" column="1" selection-start="303" selection-end="303" vertical-scroll-proportion="0.4061372">
           <folding />
         </state>
       </provider>
@@ -361,23 +438,44 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/api.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="9" selection-start="681" selection-end="681" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/component.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="20" selection-start="124" selection-end="124" vertical-scroll-proportion="-3.125">
+        <state line="5" column="20" selection-start="124" selection-end="124" vertical-scroll-proportion="0.13537906">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
+    <entry file="file://$PROJECT_DIR$/routes/api.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="20" selection-start="273" selection-end="273" vertical-scroll-proportion="0.32490975">
+        <state line="39" column="9" selection-start="671" selection-end="671" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="44" column="6" selection-start="1142" selection-end="1142" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/layout.jade">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="43" selection-start="265" selection-end="265" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/index.jade">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="5" selection-start="35" selection-end="35" vertical-scroll-proportion="0.07785467">
           <folding />
         </state>
       </provider>
