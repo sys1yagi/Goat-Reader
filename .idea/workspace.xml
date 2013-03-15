@@ -146,7 +146,7 @@
       <file leaf-file-name="index.jade" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/views/index.jade">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="5" selection-start="35" selection-end="35" vertical-scroll-proportion="0.07785467">
+            <state line="3" column="16" selection-start="32" selection-end="46" vertical-scroll-proportion="0.07785467">
               <folding />
             </state>
           </provider>
@@ -475,7 +475,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/views/index.jade">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="5" selection-start="35" selection-end="35" vertical-scroll-proportion="0.07785467">
+        <state line="3" column="16" selection-start="32" selection-end="46" vertical-scroll-proportion="0.07785467">
           <folding />
         </state>
       </provider>
