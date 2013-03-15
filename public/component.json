@@ -1,0 +1,8 @@
+{
+    "name": "goat_reader",
+    "version": "0.0.1",
+    "dependencies": {
+        "bootstrap.css":"*",
+        "jquery":"*"
+    }
+}
