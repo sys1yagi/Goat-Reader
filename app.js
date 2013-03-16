@@ -34,7 +34,7 @@ app.configure('development', function () {
 
 //initialize route
 app.get('/', routes.index);
-
+app.get('/x2j', api.xml2json);
 //start server
 var server = http.createServer(app).listen(app.get('port'), function () {
     console.log("Express server listening on port " + app.get('port'));
