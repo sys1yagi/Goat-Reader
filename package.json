@@ -11,6 +11,7 @@
         "mongoose": "*",
         "socket.io": "*",
         "tsd" : "*",
-        "forever":"*"
+        "forever":"*",
+        "xml2json":"*"
     }
 }
