@@ -1,14 +1,12 @@
 /**
  * Module dependencies.
  */
-
 var express = require('express')
     , routes = require('./routes')
     , api = require('./routes/api')
     , http = require('http')
     , path = require('path')
     , fs = require('fs')
-
     , io = require('socket.io')
     ;
 var local_port = 3000;
@@ -34,7 +32,7 @@ app.configure('development', function () {
 
 //initialize route
 app.get('/', routes.index);
-app.get('/x2j', api.xml2json);
+app.get(api.xml2json.path(), api.xml2json.handle());
 //start server
 var server = http.createServer(app).listen(app.get('port'), function () {
     console.log("Express server listening on port " + app.get('port'));
