@@ -31,8 +31,17 @@ app.configure('development', function () {
 });
 
 //initialize route
+var handlers = require("./routes/handlers");
+
 app.get('/', routes.index);
-app.get(api.xml2json.path(), api.xml2json.handle());
+
+var handlers_list = handlers.handlers();
+for(var i in handlers_list){
+    console.log(handlers_list[i]);
+    var handler = require(handlers_list[i]);
+    app.get(handler.module.path(), handler.module.handle());
+}
+
 //start server
 var server = http.createServer(app).listen(app.get('port'), function () {
     console.log("Express server listening on port " + app.get('port'));
