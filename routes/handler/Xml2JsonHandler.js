@@ -8,9 +8,23 @@ var Xml2Json = (function (_super) {
     function Xml2Json() {
         _super.apply(this, arguments);
     }
+
     Xml2Json.prototype.handle = function () {
         return function (req, res) {
-            header.writeHeadJson(res);
+            //header.writeHeadJson(res);
+            header.writeHeadText(res);
+
+
+            var dump = function (res, obj, prefix) {
+                for (var i in obj) {
+                    if (typeof(obj[i]) === "object") {
+                        dump(res, obj[i], prefix + prefix);
+                    }
+                    else {
+                        res.write(prefix + i + ":" + obj[i] + "\n");
+                    }
+                }
+            }
             http.get({
                 host: "b.hatena.ne.jp",
                 port: 80,
@@ -23,7 +37,11 @@ var Xml2Json = (function (_super) {
                     })
                     .on("end", function () {
                         var json = parser.toJson(rss);
-                        res.write(json);
+                        var jsonObject = JSON.parse(json);
+
+                        var items = jsonObject["rdf:RDF"]["item"];
+
+                        res.write("size:"+items.length);
                         res.end();
                     });
                 ;
@@ -37,5 +55,6 @@ var Xml2Json = (function (_super) {
     };
 
     return Xml2Json;
-})(handler.handler);
+})
+    (handler.handler);
 exports.module = new Xml2Json();

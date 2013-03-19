@@ -101,9 +101,10 @@
     <file path="/run_server.sh" changelist="7c869ab0-bff6-4bac-8901-41a3899c458e" time="1363442384532" ignored="false" />
     <file path="/handle.js" changelist="7c869ab0-bff6-4bac-8901-41a3899c458e" time="1363578995218" ignored="false" />
     <file path="/handlers.js" changelist="7c869ab0-bff6-4bac-8901-41a3899c458e" time="1363664638079" ignored="false" />
-    <file path="/Xml2JsonHandler.js" changelist="7c869ab0-bff6-4bac-8901-41a3899c458e" time="1363665151827" ignored="false" />
-    <file path="/HeaderUtil.js" changelist="7c869ab0-bff6-4bac-8901-41a3899c458e" time="1363665163031" ignored="false" />
+    <file path="/Xml2JsonHandler.js" changelist="7c869ab0-bff6-4bac-8901-41a3899c458e" time="1363667936522" ignored="false" />
+    <file path="/HeaderUtil.js" changelist="7c869ab0-bff6-4bac-8901-41a3899c458e" time="1363667639875" ignored="false" />
     <file path="/Feeds.js" changelist="7c869ab0-bff6-4bac-8901-41a3899c458e" time="1363665500428" ignored="false" />
+    <file path="/FeedModel.js" changelist="7c869ab0-bff6-4bac-8901-41a3899c458e" time="1363665905293" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -132,10 +133,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="app.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="42" column="1" selection-start="1174" selection-end="1174" vertical-scroll-proportion="0.61139894">
+            <state line="42" column="1" selection-start="1174" selection-end="1174" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FeedModel.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/model/FeedModel.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="16" column="0" selection-start="377" selection-end="377" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -150,10 +160,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Xml2JsonHandler.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="Xml2JsonHandler.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/routes/handler/Xml2JsonHandler.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="26" column="6" selection-start="903" selection-end="903" vertical-scroll-proportion="0.0">
+            <state line="42" column="0" selection-start="1404" selection-end="1404" vertical-scroll-proportion="0.54404145">
               <folding />
             </state>
           </provider>
@@ -162,25 +172,16 @@
       <file leaf-file-name="HeaderUtil.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/handler/HeaderUtil.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="50" selection-start="203" selection-end="203" vertical-scroll-proportion="0.0">
+            <state line="14" column="0" selection-start="341" selection-end="341" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="handlers.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/routes/handlers.js">
+      <file leaf-file-name="FeedsHandler.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/routes/handler/FeedsHandler.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="17" selection-start="232" selection-end="232" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Feeds.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/routes/handler/Feeds.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="25" column="30" selection-start="581" selection-end="581" vertical-scroll-proportion="-6.818182">
+            <state line="10" column="16" selection-start="309" selection-end="309" vertical-scroll-proportion="-2.7272727">
               <folding />
             </state>
           </provider>
@@ -205,7 +206,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/public/component.json.js" />
         <option value="$PROJECT_DIR$/public/component.json.json" />
         <option value="$PROJECT_DIR$/public/component.json" />
         <option value="$PROJECT_DIR$/views/layout.jade" />
@@ -216,11 +216,12 @@
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/routes/handle.js" />
         <option value="$PROJECT_DIR$/routes/api.js" />
-        <option value="$PROJECT_DIR$/routes/handler/Xml2JsonHandler.js" />
-        <option value="$PROJECT_DIR$/routes/handler/HeaderUtil.js" />
         <option value="$PROJECT_DIR$/routes/handler/Feeds.js" />
-        <option value="$PROJECT_DIR$/routes/handlers.js" />
         <option value="$PROJECT_DIR$/app.js" />
+        <option value="$PROJECT_DIR$/model/FeedModel.js" />
+        <option value="$PROJECT_DIR$/routes/handlers.js" />
+        <option value="$PROJECT_DIR$/routes/handler/HeaderUtil.js" />
+        <option value="$PROJECT_DIR$/routes/handler/Xml2JsonHandler.js" />
       </list>
     </option>
   </component>
@@ -330,6 +331,34 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="proj" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Goat-Reader" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="node_modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="proj" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Goat-Reader" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="model" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -456,14 +485,11 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/views/layout.jade">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="43" selection-start="265" selection-end="265" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/run_server.sh">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="10" selection-start="247" selection-end="247" vertical-scroll-proportion="0.22727273" />
+        <state line="11" column="10" selection-start="247" selection-end="247" vertical-scroll-proportion="0.22727273">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/setup.sh">
@@ -512,16 +538,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/handler/HeaderUtil.js">
+    <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="50" selection-start="203" selection-end="203" vertical-scroll-proportion="0.0">
+        <state line="42" column="1" selection-start="1174" selection-end="1174" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/handler/Xml2JsonHandler.js">
+    <entry file="file://$PROJECT_DIR$/model/FeedModel.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="6" selection-start="903" selection-end="903" vertical-scroll-proportion="0.0">
+        <state line="16" column="0" selection-start="377" selection-end="377" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/handlers.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="1" selection-start="299" selection-end="299" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/handler/FeedsHandler.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="16" selection-start="309" selection-end="309" vertical-scroll-proportion="-2.7272727">
           <folding />
         </state>
       </provider>
@@ -533,23 +573,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/handlers.js">
+    <entry file="file://$PROJECT_DIR$/routes/handler/HeaderUtil.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="17" selection-start="232" selection-end="232" vertical-scroll-proportion="0.0">
+        <state line="14" column="0" selection-start="341" selection-end="341" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/handler/Feeds.js">
+    <entry file="file://$PROJECT_DIR$/routes/handler/Xml2JsonHandler.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="30" selection-start="581" selection-end="581" vertical-scroll-proportion="-6.818182">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="42" column="1" selection-start="1174" selection-end="1174" vertical-scroll-proportion="0.61139894">
+        <state line="42" column="0" selection-start="1404" selection-end="1404" vertical-scroll-proportion="0.54404145">
           <folding />
         </state>
       </provider>
