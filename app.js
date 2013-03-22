@@ -31,16 +31,12 @@ app.configure('development', function () {
 });
 
 //initialize route
-var handlers = require("./routes/handlers");
-
 app.get('/', routes.index);
+app.get('/settings', routes.settings);
 
-var handlers_list = handlers.handlers();
-for(var i in handlers_list){
-    console.log(handlers_list[i]);
-    var handler = require(handlers_list[i]);
-    app.get(handler.module.path(), handler.module.handle());
-}
+var handlers = require("./routes/handlers");
+handlers.initilize(app);
+
 
 //start server
 var server = http.createServer(app).listen(app.get('port'), function () {
@@ -51,6 +47,7 @@ var server = http.createServer(app).listen(app.get('port'), function () {
 var sio = io.listen(server);
 sio.on('connection', function(client) {
 
+    /*
     //ユーザー接続時の初期化処理
 
     // Message受信時のハンドラ
@@ -66,4 +63,5 @@ sio.on('connection', function(client) {
             {status:"disconnect",
                 id:client.sessionId}));
     });
+    */
 }) ;

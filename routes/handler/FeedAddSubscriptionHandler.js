@@ -2,19 +2,16 @@
  * Created with JetBrains WebStorm.
  * User: yagitoshihiro
  * Date: 2013/03/22
- * Time: 15:01
+ * Time: 15:19
  * To change this template use File | Settings | File Templates.
  */
 var handler = require("./handler");
 var header = require("./HeaderUtil");
+var FeedModel = require("../../model/FeedModel");
 
 /**
- * page_id: ページング
- * item_filter: 未読, 全て
- * category: カテゴリ
- * tags: タグ
- * word_filter: 絞り込み
- * sort: 新しい、古い
+ * url = 追加するURL
+ *
  */
 var Module = (function (_super) {
     handler.extends(Module, _super);
@@ -25,14 +22,16 @@ var Module = (function (_super) {
         return function(req,res){
             //処理
             header.writeHeadHTML(res);
-            res.write("feeds");
+            res.write("subscription");
+
+
+
             res.end();
         }
     };
     Module.prototype.path = function () {
         //パス
-
-        return "/feeds";
+        return "/subscription";
     };
 
     return Module;

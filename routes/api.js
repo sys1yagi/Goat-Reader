@@ -8,23 +8,7 @@ function writeHead(res) {
 
 ///////////////////////////////////////////////
 //TODO モジュール化
-
-////////////////////////////////////////////////////////
-//feeds
-/**
- *
- * page_id: ページング
- * item_filter: 未読, 全て
- * category: カテゴリ
- * tags: タグ
- * word_filter: 絞り込み
- * sort: 新しい、古い
- *
- */
-exports.feeds = function (req, res) {
-    res.send("respond with a resource");
-};
-
+///////////////////////////////////////////////
 //登録フィードを取得する
 exports.feed_get_subscriptions = function (req, res) {
     res.send("respond with a resource");

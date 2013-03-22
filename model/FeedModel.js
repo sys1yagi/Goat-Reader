@@ -1,5 +1,7 @@
 var mongoose = require('mongoose');
-var db = mongoose.connect('mongodb://localhost/goatreader');
+//var db = mongoose.connect('mongodb://localhost/goatreader');
+var DB = require("./DB");
+var db = DB.getDB();
 
 var FeedSchema = new mongoose.Schema({
     todo:{type:String}
@@ -11,18 +13,6 @@ var FeedSchema = new mongoose.Schema({
     , category:String
 });
 
-var Todo = db.model('todo', TodoSchema);
+var Feed = db.model('todo', FeedSchema);
 
-exports.Todo = Todo;
-
-exports.createModel = function (todo, addDate, tags, status, order, parent, category) {
-    return {
-        "todo":todo,
-        "addDate":addDate,
-        "tags":tags,
-        "status":status,
-        "order":order,
-        "parent":parent,
-        "category":category
-    };
-}
+exports.Feed = Feed;

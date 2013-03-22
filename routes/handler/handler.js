@@ -20,5 +20,3 @@ var Handler = (function () {
 
 exports.handler = Handler;
 exports.extends = __extends;
-
-
