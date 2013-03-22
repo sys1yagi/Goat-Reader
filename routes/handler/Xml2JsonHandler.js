@@ -41,7 +41,9 @@ var Xml2Json = (function (_super) {
 
                         var items = jsonObject["rdf:RDF"]["item"];
 
-                        res.write("size:"+items.length);
+                        var title = jsonObject["rdf:RDF"]["channel"]["title"];
+
+                        res.write("size:"+title);
                         res.end();
                     });
                 ;

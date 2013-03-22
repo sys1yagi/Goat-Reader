@@ -3,15 +3,15 @@ var DB = require("./DB");
 var db = DB.getDB();
 
 /**
- * RSSフィードのURL
+ * RSSフィードのアイテム
  * @type {mongoose.Schema}
  */
-var FeedSchema = new mongoose.Schema({
+var ItemSchema = new mongoose.Schema({
     name:String
     ,url:String
-    ,category:String
+    , category:String
 });
 
-var Feed = db.model('feed', FeedSchema);
+var Item = db.model('feed', ItemSchema);
 
-exports.Feed = Feed;
+exports.Item = Item;

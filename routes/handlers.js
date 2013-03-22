@@ -5,7 +5,8 @@ var handlers = function(){
     var list=[
         "Xml2JsonHandler",
         "FeedsHandler",
-        "FeedSubscriptionHandler"
+        "FeedSubscriptionHandler",
+        "FeedAddSubscriptionHandler"
     ];
     for(var i = list.length-1; i >= 0; i--){
         handlers.push(importRootPath + list[i]);

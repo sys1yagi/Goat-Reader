@@ -14,15 +14,29 @@ var Module = (function (_super) {
     function Module() {
         _super.apply(this, arguments);
     }
+    /**
+     * JSON形式のデータを生成する
+     * @param status
+     * @param body
+     * @return {*}
+     */
+    function makeResponseBody(status, body){
+        return JSON.stringify({status:status, body:body});
+    }
     Module.prototype.handle = function () {
         return function(req,res){
             //処理
-            header.writeHeadHTML(res);
-            res.write("subscription");
-
-
-
-            res.end();
+            header.writeHeadJson(res);
+            FeedModel.Feed.find().exec(function (err, feeds) {
+                console.log("load_todo_list loaded!");
+                if(err){
+                    res.write(makeResponseBody("error", "load error!"+err));
+                }
+                else{
+                    res.write(makeResponseBody("success", feeds));
+                }
+                res.end();
+            });
         }
     };
     Module.prototype.path = function () {

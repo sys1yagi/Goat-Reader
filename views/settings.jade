@@ -1,3 +1,12 @@
 extends layout
 block content
     p settings
+    div
+        input#feed(type="text")
+        input#submit(type="button", value="送信")
+    script
+        window.onload=function(){
+            $("#submit").on("click", function(){
+                document.location.href="./add_subscription?url="+encodeURIComponent($("#feed").val());
+            });
+        }
