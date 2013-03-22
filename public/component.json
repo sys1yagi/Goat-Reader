@@ -3,6 +3,9 @@
     "version": "0.0.1",
     "dependencies": {
         "bootstrap.css":"*",
-        "jquery":"*"
+        "jquery":"*",
+        "flight": "~1.0.0",
+        "requirejs":"*",
+        "es5-shim" : "*"
     }
 }

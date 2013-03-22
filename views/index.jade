@@ -1,5 +1,192 @@
 extends layout
 
 block content
-  h1 Goat Reader
-  p todo...
+    .navbar.navbar-fixed-top.navbar-inverse
+        .navbar-inner
+            .container-fluid
+                a.btn.btn-navbar(data-toggle='collapse', data-target='.nav-collapse')
+                    span.icon-bar
+                    span.icon-bar
+                    span.icon-bar
+                a.brand(href='#')
+                    | Goat Reader
+                .nav-collapse
+                    ul.nav
+                        li.active
+                            a(href='#')
+                                | Home
+                        li
+                            a(href='#')
+                                | About
+                        li
+                            a(href='./settings')
+                                | Settings
+                form.navbar-form.pull-right
+                    input.span2(name='textinput1', type='email', placeholder='Email')
+                    input.span2(name='textinput2', type='password', placeholder='Password')
+                    button.btn
+                        | Sign in
+
+    .container-fluid(style="margin-top:50px;")
+        .row-fluid
+            .span3
+                .well.sidebar-nav
+                    ul.nav.nav-list
+                        li.nav-header
+                            | Home
+                        li
+                            a(href='#')
+                                | All(250)
+                        li.nav-header
+                            | Feeds
+                        li
+                            a(href='#')
+                                | 登録フィード
+            .span9#feed_list(style="overflow: scroll;")
+                .row-fluid
+                    .span4
+                        div
+                            h2
+                                | Heading
+                            p
+                                | Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus
+                                | ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo
+                                | sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed
+                                | odio dui.
+                        a.btn(href='#')
+                            | View details »
+                    .span4
+                        div
+                            h2
+                                | Heading
+                            p
+                                | Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus
+                                | ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo
+                                | sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed
+                                | odio dui.
+                        a.btn(href='#')
+                            | View details »
+                    .span4
+                        div
+                            h2
+                                | Heading
+                            p
+                                | Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus
+                                | ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo
+                                | sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed
+                                | odio dui.
+                        a.btn(href='#')
+                            | View details »
+                .row-fluid
+                    .span4
+                        div
+                            h2
+                                | Heading
+                            p
+                                | Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus
+                                | ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo
+                                | sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed
+                                | odio dui.
+                        a.btn(href='#')
+                            | View details »
+                    .span4
+                        div
+                            h2
+                                | Heading
+                            p
+                                | Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus
+                                | ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo
+                                | sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed
+                                | odio dui.
+                        a.btn(href='#')
+                            | View details »
+                    .span4
+                        div
+                            h2
+                                | Heading
+                            p
+                                | Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus
+                                | ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo
+                                | sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed
+                                | odio dui.
+                        a.btn(href='#')
+                            | View details »
+                .row-fluid
+                    .span4
+                        div
+                            h2
+                                | Heading
+                            p
+                                | Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus
+                                | ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo
+                                | sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed
+                                | odio dui.
+                        a.btn(href='#')
+                            | View details »
+                .row-fluid
+                    .span4
+                        div
+                            h2
+                                | Heading
+                            p
+                                | Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus
+                                | ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo
+                                | sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed
+                                | odio dui.
+                        a.btn(href='#')
+                            | View details »
+                .row-fluid
+                    .span4
+                        div
+                            h2
+                                | Heading
+                            p
+                                | Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus
+                                | ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo
+                                | sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed
+                                | odio dui.
+                        a.btn(href='#')
+                            | View details »
+                .row-fluid
+                    .span4
+                        div
+                            h2
+                                | Heading
+                            p
+                                | Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus
+                                | ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo
+                                | sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed
+                                | odio dui.
+                        a.btn(href='#')
+                            | View details »
+                .row-fluid
+                    .span4
+                        div
+                            h2
+                                | Heading
+                            p
+                                | Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus
+                                | ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo
+                                | sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed
+                                | odio dui.
+                        a.btn(href='#')
+                            | View details »
+                .row-fluid
+                    .span4
+                        div
+                            h2
+                                | Heading
+                            p
+                                | Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus
+                                | ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo
+                                | sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed
+                                | odio dui.
+                        a.btn(href='#')
+                            | View details »
+            hr
+                div
+                    | © toshihiro yagi 2013
+    script(type="text/javascript")
+        window.onload = function(){
+            $("#feed_list").height($(window).height()-50);
+        }
