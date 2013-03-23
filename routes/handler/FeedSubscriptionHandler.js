@@ -3,9 +3,8 @@
  * User: yagitoshihiro
  * Date: 2013/03/22
  * Time: 15:01
- * To change this template use File | Settings | File Templates.
+ * 登録済みのFeed URLを取得する
  */
-
 var handler = require("./handler");
 var header = require("./HeaderUtil");
 var FeedModel = require("../../model/FeedModel");

@@ -15,10 +15,10 @@ block content
                         li
                             a(href='/')
                                 | Home
-                        li
+                        li.active
                             a(href='#')
                                 | About
-                        li.active
+                        li
                             a(href='./settings')
                                 | Settings
                 form.navbar-form.pull-right
@@ -63,7 +63,3 @@ block content
             hr
                 div
                     | © toshihiro yagi 2013
-    script(type="text/javascript")
-        require(['flight-component/pages/settings'], function(initialize) {
-                initialize();
-            });

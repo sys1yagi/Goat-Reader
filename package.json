@@ -9,9 +9,9 @@
         "express": "3.1.0",
         "jade": "*",
         "mongoose": "*",
-        "socket.io": "*",
         "tsd" : "*",
         "forever":"*",
-        "xml2json":"*"
+        "xml2json":"*",
+        "cron":"*"
     }
 }

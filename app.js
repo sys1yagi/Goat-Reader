@@ -7,7 +7,6 @@ var express = require('express')
     , http = require('http')
     , path = require('path')
     , fs = require('fs')
-    , io = require('socket.io')
     ;
 var local_port = 3000;
 var app = express();
@@ -42,26 +41,3 @@ handlers.initilize(app);
 var server = http.createServer(app).listen(app.get('port'), function () {
     console.log("Express server listening on port " + app.get('port'));
 });
-
-//initialize socket.io
-var sio = io.listen(server);
-sio.on('connection', function(client) {
-
-    /*
-    //ユーザー接続時の初期化処理
-
-    // Message受信時のハンドラ
-    client.on('message',function(message){
-        client.send(message);
-        client.broadcast(message);
-    });
-
-    // クライアント切断時のハンドラ
-    client.on('disconnect', function(){
-        // クライアントがleaveしたことを接続ユーザーへ送信
-        client.broadcast(JSON.stringify(
-            {status:"disconnect",
-                id:client.sessionId}));
-    });
-    */
-}) ;

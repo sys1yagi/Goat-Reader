@@ -11,7 +11,5 @@ var FeedSchema = new mongoose.Schema({
     ,url:String
     ,category:String
 });
-
 var Feed = db.model('feed', FeedSchema);
-
 exports.Feed = Feed;
