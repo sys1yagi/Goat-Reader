@@ -23,7 +23,7 @@ define(
             this.createItem = function(item){
                 return $("<div/>",{
                     id:item._id
-                }).append("moge")
+                }).append("<a href='"+item.url + "' target='_blank'>" + item.name + "</a>")
                     .append("<hr/>")
                     ;
             }

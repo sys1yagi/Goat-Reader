@@ -1,5 +1,5 @@
 var handler = require("./handler");
-var header = require("./HeaderUtil");
+var header = require("./RequestUtil");
 
 var parser = require('xml2json');
 var http = require('http');
@@ -11,7 +11,7 @@ var Xml2Json = (function (_super) {
 
     Xml2Json.prototype.handle = function () {
         return function (req, res) {
-            //header.writeHeadJson(res);
+            //util.writeHeadJson(res);
             header.writeHeadText(res);
 
 

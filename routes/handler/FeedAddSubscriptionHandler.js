@@ -6,7 +6,7 @@
  * To change this template use File | Settings | File Templates.
  */
 var handler = require("./handler");
-var header = require("./HeaderUtil");
+var util = require("./RequestUtil");
 var FeedModel = require("../../model/FeedModel");
 var url = require('url');
 var http = require("http");
@@ -38,7 +38,6 @@ var Module = (function (_super) {
         });
 
     }
-
     /**
      * フィードの名称を取得する
      * @param model
@@ -71,7 +70,7 @@ var Module = (function (_super) {
     Module.prototype.handle = function () {
         return function (req, res) {
             //処理
-            header.writeHeadHTML(res);
+            util.writeHeadHTML(res);
             var url_parts = url.parse(req.url, true);
             var query = url_parts.query;
             var model = new FeedModel.Feed();
@@ -110,8 +109,6 @@ var Module = (function (_super) {
         //パス
         return "/add_subscription";
     };
-
     return Module;
 })(handler.handler);
-
 exports.module = new Module();

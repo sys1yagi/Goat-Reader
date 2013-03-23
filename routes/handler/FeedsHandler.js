@@ -6,7 +6,7 @@
  * To change this template use File | Settings | File Templates.
  */
 var handler = require("./handler");
-var header = require("./HeaderUtil");
+var header = require("./RequestUtil");
 
 /**
  * page_id: ページング

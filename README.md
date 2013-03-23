@@ -1,4 +1,4 @@
 Goat-Reader
 ===========
 
-a google reader clone.
+This is an alternative to Google Reader.

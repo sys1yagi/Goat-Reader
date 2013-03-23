@@ -6,7 +6,16 @@ var handlers = function(){
         "Xml2JsonHandler",
         "FeedsHandler",
         "FeedSubscriptionHandler",
-        "FeedAddSubscriptionHandler"
+        "FeedAddSubscriptionHandler",
+        "FeedRemoveSubscriptionHandler"
+
+        //カテゴリの追加
+        //カテゴリの取得
+        //カテゴリの削除
+
+        //タグの追加
+        //タグの取得
+        //タグの削除
     ];
     for(var i = list.length-1; i >= 0; i--){
         handlers.push(importRootPath + list[i]);
