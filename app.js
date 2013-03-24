@@ -41,3 +41,28 @@ handlers.initilize(app);
 var server = http.createServer(app).listen(app.get('port'), function () {
     console.log("Express server listening on port " + app.get('port'));
 });
+
+//cron jobs
+var cronJob = require('cron').CronJob;
+var cronTime = "*/5 * * * *";
+var Crawl = require("./routes/handler/CrawlHandler");
+var handle = Crawl.module.handle();
+job = new cronJob({
+    // The time to fire off your job.
+    cronTime: cronTime
+
+    // The function to fire at the specified time.
+    , onTick: function() {
+        handle(null, null);
+    }
+
+    // A function that will fire when the job is complete, when it is stopped
+    , onComplete: function() {
+        console.log('Completed.')
+    }
+
+    // Specified whether to start the job after just before exiting the constructor.
+    , start: false
+    , timeZone: "Japan/Tokyo"
+});
+job.start();

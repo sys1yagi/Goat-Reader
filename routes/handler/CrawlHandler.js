@@ -125,12 +125,16 @@ var Module = (function (_super) {
     Module.prototype.handle = function () {
         return function (req, res) {
             start();
-            header.writeHeadHTML(res);
+            if(res !== null){
+                header.writeHeadHTML(res);
+            }
             FeedModel.Feed.find(null, function (err, feeds) {
                 loadFeeds(feeds, function () {
                     var ms = end();
-                    res.write(ms + "ms");
-                    res.end();
+                    if (res !== null) {
+                        res.write(ms + "ms");
+                        res.end();
+                    }
                     console.log(ms + "ms");
                 });
             });
