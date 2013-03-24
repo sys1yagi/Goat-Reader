@@ -30,6 +30,7 @@ app.configure('development', function () {
 
 //initialize route
 app.get('/', routes.index);
+app.get('/about', routes.about);
 app.get('/settings', routes.settings);
 
 var handlers = require("./routes/handlers");

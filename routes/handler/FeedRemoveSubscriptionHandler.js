@@ -29,7 +29,7 @@ var Module = (function (_super) {
                 res.end();
                 return;
             }
-            FeedMdel.Feed.remove({"_id":id}, function(err){
+            FeedModel.Feed.remove({"_id":id}, function(err){
                 if(err){
                     res.write(util.makeResponseJsonBody("error", err));
                 }

@@ -12,6 +12,7 @@
         "tsd" : "*",
         "forever":"*",
         "xml2json":"*",
-        "cron":"*"
+        "cron":"*",
+        "time":"*"
     }
 }
