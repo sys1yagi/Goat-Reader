@@ -16,10 +16,10 @@ var ItemSchema = new mongoose.Schema({
     ,subject:String
 
     //attribute
-    ,source_feed:String
-    ,category:String
-    ,tags:String
+    ,source_feed:[String]
+    ,category:[String]
+    ,tags:[String]
 
 });
-var Item = db.model('feed', ItemSchema);
+var Item = db.model('item', ItemSchema);
 exports.Item = Item;
