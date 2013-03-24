@@ -3,8 +3,8 @@ var handlers = function(){
     var importRootPath="./handler/"
     var handlers = new Array();
     var list=[
-        //いずれ消す
-        "Xml2JsonHandler",
+        //フィードのクロール
+        "CrawlHandler",
 
         //アイテム一覧を取得する
         "FeedsHandler",

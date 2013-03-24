@@ -19,7 +19,7 @@ var ItemSchema = new mongoose.Schema({
     ,source_feed:[String]
     ,category:[String]
     ,tags:[String]
-
+    ,mark:Boolean
 });
 var Item = db.model('item', ItemSchema);
 exports.Item = Item;
