@@ -26,12 +26,12 @@ define(
             load_feed.attachTo("#feed_list", {
 
             });
-            /*
+
             $("#submit").on("click", function(){
-                console.log("moge");
-                //document.location.href="./add_subscription?url="+encodeURIComponent($("#feed").val());
+                //console.log("moge");
+                document.location.href="./add_subscription?url="+encodeURIComponent($("#feed").val());
             });
-            */
+
         }
         return initialize;
     }

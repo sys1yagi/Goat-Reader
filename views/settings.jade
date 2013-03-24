@@ -36,20 +36,17 @@ block content
                         li
                             a(href='#')
                                 | 登録フィード
-            .span9#feed_list(style="overflow: scroll;")
+            .span9(style="overflow: scroll;")
                 .row-fluid
                     .span6
                         .input-append
                             input.input-xxlarge#feed(type="text")
                             button.btn#submit 登録
-                hr
-                .row-fluid
+
+                .row-fluid#feed_list
                     .span10
-                        div
-                            h2
-                                | Heading
-                            p
-                                | Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus
+                        div 登録フィード一覧
+                    hr
             hr
                 div
                     | © toshihiro yagi 2013

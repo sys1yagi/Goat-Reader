@@ -7,11 +7,19 @@ var db = DB.getDB();
  * @type {mongoose.Schema}
  */
 var ItemSchema = new mongoose.Schema({
-    name:String
-    ,url:String
-    , category:String
+    //item data
+    title:String
+    ,link:String
+    ,description:String
+    ,content:String
+    ,date:Date
+    ,subject:String
+
+    //attribute
+    ,source_feed:String
+    ,category:String
+    ,tags:String
+
 });
-
 var Item = db.model('feed', ItemSchema);
-
 exports.Item = Item;

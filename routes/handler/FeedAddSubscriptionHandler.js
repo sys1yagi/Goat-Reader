@@ -74,7 +74,7 @@ var Module = (function (_super) {
             var url_parts = url.parse(req.url, true);
             var query = url_parts.query;
             var model = new FeedModel.Feed();
-            if (typeof query.url !== "undefined") {
+            if (typeof query.url !== "undefined" && query.url.length > 0) {
                 model.name = "noname";
                 model.url = query.url;
                 //url重複あるかチェック

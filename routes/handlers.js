@@ -3,11 +3,23 @@ var handlers = function(){
     var importRootPath="./handler/"
     var handlers = new Array();
     var list=[
+        //いずれ消す
         "Xml2JsonHandler",
+
+        //アイテム一覧を取得する
         "FeedsHandler",
+
+        //登録しているフィードを取得する
         "FeedSubscriptionHandler",
+
+        //フィードを登録
         "FeedAddSubscriptionHandler",
+
+        //フィードを削除
         "FeedRemoveSubscriptionHandler"
+
+        //フィードを更新
+
 
         //カテゴリの追加
         //カテゴリの取得

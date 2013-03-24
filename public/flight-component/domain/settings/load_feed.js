@@ -41,7 +41,7 @@ define(
                     type:"GET",
                     url:this.attr.load_url,
                     success:function(json){
-                        console.log(json);
+                        //console.log(json);
                         if(json.status === "error"){
 
                         }
