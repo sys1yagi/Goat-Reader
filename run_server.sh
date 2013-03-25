@@ -20,10 +20,10 @@ fi
 
 if [ "$1" == "start" ] ; then
     echo "server start"
-    ./node_modules/forever/bin/forever -l goat_log.txt start app.js
+    ./node_modules/forever/bin/forever --append -l goat_log.txt start app.js
 elif [ "$1" == "restart" ] ; then
     ./node_modules/forever/bin/forever stop $2
-    ./node_modules/forever/bin/forever -l goat_log.txt start app.js
+    ./node_modules/forever/bin/forever --append -l goat_log.txt start app.js
 elif [ "$1" == "stop" ] ; then
     ./node_modules/forever/bin/forever stop $2
 elif [ "$1" == "list" ] ; then
