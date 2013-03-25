@@ -1,4 +1,3 @@
-#!/bin/sh
 ISERROR=0
 
 which node > /dev/null 2>&1
@@ -21,10 +20,12 @@ fi
 
 if [ "$1" == "start" ] ; then
     echo "server start"
-    ./node_modules/forever/bin/forever start app.js
+    ./node_modules/forever/bin/forever -l goat_log.txt start app.js
 elif [ "$1" == "restart" ] ; then
-    ./node_modules/forever/bin/forever stopall
-    ./node_modules/forever/bin/forever start app.js
+    ./node_modules/forever/bin/forever stop $2
+    ./node_modules/forever/bin/forever -l goat_log.txt start app.js
 elif [ "$1" == "stop" ] ; then
-    ./node_modules/forever/bin/forever stopall
+    ./node_modules/forever/bin/forever stop $2
+elif [ "$1" == "list" ] ; then
+    ./node_modules/forever/bin/forever list
 fi
