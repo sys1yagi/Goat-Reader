@@ -9,14 +9,14 @@
 /** 依存のある部分 */
 define(
     [
-        "flight-component/domain/index/load_item"
+        "flight-component/domain/index/load_item",
+        "flight-component/domain/index/all_items"
     ],
-    function(load_item){
+    function(load_item, all_items){
         function initialize(){
-            $("#feed_list").height($(window).height()-50);
-            load_item.attachTo("#item_list", {
+            load_item.attachTo("#item_list", {});
+            all_items.attachTo("#all_items", {});
 
-            });
         }
         return initialize;
     }

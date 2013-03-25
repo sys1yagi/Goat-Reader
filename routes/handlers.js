@@ -9,6 +9,8 @@ var handlers = function(){
         //アイテム一覧を取得する
         "FeedsHandler",
 
+        "UnmarkCountHandler",
+
         //登録しているフィードを取得する
         "FeedSubscriptionHandler",
 
