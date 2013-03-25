@@ -7,7 +7,7 @@ var express = require('express')
     , path = require('path')
     , fs = require('fs')
     ;
-var local_port = 3000;
+var local_port = 3001;
 var app = express();
 
 app.configure(function () {
@@ -63,6 +63,6 @@ job = new cronJob({
 
     // Specified whether to start the job after just before exiting the constructor.
     , start: false
-    , timeZone: "Japan/Tokyo"
+//    , timeZone: "Japan/Tokyo"
 });
 job.start();
