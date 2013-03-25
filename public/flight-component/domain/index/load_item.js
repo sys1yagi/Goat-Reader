@@ -32,6 +32,9 @@ define(
             }
             this.getCurrentRow=function(){
                 if(this.current_row == null || this.current_row.children().length === 3){
+                    if(this.current_row !== null){
+                        this.$node.append("<hr/>");
+                    }
                     this.current_row = $("<div class='row-fluid' style='margin-bottom: 10px;'></div>")
                     this.$node.append(this.current_row);
                 }
