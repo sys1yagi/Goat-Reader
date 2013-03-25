@@ -1,5 +1,4 @@
 extends layout
-
 block content
     .navbar.navbar-fixed-top.navbar-inverse
         .navbar-inner
@@ -29,7 +28,7 @@ block content
 
     .container-fluid(style="margin-top:50px;")
         .row-fluid
-            .span3
+            .span2
                 .well.sidebar-nav
                     ul.nav.nav-list
                         li.nav-header
@@ -42,19 +41,7 @@ block content
                         li
                             a(href='#')
                                 | 登録フィード
-            .span9#item_list(style="overflow: scroll;")
-                .row-fluid
-                    .span12
-                        div
-                            h2
-                                | Feed
-                            p
-                                | ここにフィードを出す
-                                | 一覧で出るでー
-                                | odio dui.
-                                | sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed
-                        a.btn(href='#')
-                            | 続きを読む »
+            .span10#item_list(style="overflow: scroll;")
             hr
                 div
                     | © toshihiro yagi 2013
@@ -62,3 +49,7 @@ block content
         window.onload = function(){
             $("#item_list").height($(window).height()-50);
         }
+        require(['flight-component/pages/index'], function(initialize) {
+                initialize();
+            });
+

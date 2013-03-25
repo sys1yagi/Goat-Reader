@@ -26,7 +26,7 @@ var Module = (function (_super) {
         return function(req,res){
             //処理
             header.writeHeadJson(res);
-            ItemModel.Item.find(null, function(err, items){
+            ItemModel.Item.find().sort({date:"desc"}).limit(30).exec(function(err, items){
                 if(err){
                     res.write(util.makeResponseJsonBody("error", err));
                 }
@@ -40,7 +40,6 @@ var Module = (function (_super) {
     };
     Module.prototype.path = function () {
         //パス
-
         return "/feeds";
     };
 
