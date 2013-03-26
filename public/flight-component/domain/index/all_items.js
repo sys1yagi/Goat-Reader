@@ -18,7 +18,7 @@ define(
             this.defaultAttrs({
                 load_url: 'all_unmark_count'
             });
-            this.after("initialize", function(){
+            this.loadCount = function(){
                 var self = this;
                 //データロード
                 $.ajax({
@@ -32,6 +32,12 @@ define(
                             self.$node.html("all("+json.body+")");
                         }
                     }
+                });
+            }
+            this.after("initialize", function(){
+                this.loadCount();
+                this.on(document, "loadList", function(){
+                    this.loadCount();
                 });
 
             });
