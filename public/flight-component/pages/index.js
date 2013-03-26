@@ -10,13 +10,14 @@
 define(
     [
         "flight-component/domain/index/load_item",
-        "flight-component/domain/index/all_items"
+        "flight-component/domain/index/all_items",
+        "flight-component/domain/general/item_marked"
     ],
-    function(load_item, all_items){
+    function(load_item, all_items, item_marked){
         function initialize(){
             load_item.attachTo("#item_list", {});
             all_items.attachTo("#all_items", {});
-
+            item_marked.attachTo("#mark_and_next", {});
         }
         return initialize;
     }

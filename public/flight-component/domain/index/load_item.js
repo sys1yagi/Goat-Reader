@@ -10,7 +10,6 @@
 define(
     [
         'components/flight/lib/component'
-        //'js/ui/todo_list_controller'
     ],
     function(defineComponent){
         return defineComponent(ItemLoad);
@@ -49,25 +48,36 @@ define(
                     var row = this.getCurrentRow();
                     row.append(item);
                 }
-            }
-            this.after("initialize", function(){
+            };
+            this.loadList = function(){
                 var self = this;
-                //データロード
                 $.ajax({
                     type:"GET",
                     url:this.attr.load_url,
                     success:function(json){
-                        //console.log(json);
                         if(json.status === "error"){
 
                         }
                         else{
-                            //self.trigger("appendTodoList", [json.body]);
                             self.addFeedList(json.body);
                         }
                     }
                 });
+            }
+            this.after("initialize", function(){
 
+                //データロード
+                this.loadList();
+                this.on(document, "getListFeeds", function(event, param){
+                    param.callback(this.items);
+                });
+                this.on(document, "loadList", function(event, param){
+                    this.loadList();
+                });
+                this.on(document, "clearList", function(event, param){
+                    this.$node.html("");
+                    delete this.items;
+                });
             });
         }
     }

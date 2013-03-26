@@ -4,24 +4,26 @@ var handlers = function(){
     var handlers = new Array();
     var list=[
         //フィードのクロール
-        "CrawlHandler",
+        "CrawlHandler"
 
         //アイテム一覧を取得する
-        "FeedsHandler",
+        ,"FeedsHandler"
 
-        "UnmarkCountHandler",
+        ,"UnmarkCountHandler"
 
         //登録しているフィードを取得する
-        "FeedSubscriptionHandler",
+        ,"FeedSubscriptionHandler"
 
         //フィードを登録
-        "FeedAddSubscriptionHandler",
+        ,"FeedAddSubscriptionHandler"
 
         //フィードを削除
-        "FeedRemoveSubscriptionHandler"
+        ,"FeedRemoveSubscriptionHandler"
 
         //フィードを更新
 
+        //既読処理
+        ,"MarkHandler"
 
         //カテゴリの追加
         //カテゴリの取得
@@ -36,13 +38,15 @@ var handlers = function(){
     }
     return handlers;
 }
+/**
+ * ハンドラ登録をする処理
+ * @param app
+ */
 exports.initilize = function(app){
     var handlers_list = handlers();
     for(var i in handlers_list){
         console.log(handlers_list[i]);
         var handler = require(handlers_list[i]);
-
         app.get(handler.module.path(), handler.module.handle());
-
     }
 }
