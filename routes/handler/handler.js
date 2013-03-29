@@ -15,6 +15,9 @@ var Handler = (function () {
     Handler.prototype.path = function () {
         return "/";
     };
+    Handler.prototype.method = function(){
+        return "GET";
+    };
     return Handler;
 })();
 

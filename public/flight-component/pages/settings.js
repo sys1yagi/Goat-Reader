@@ -9,29 +9,20 @@
 /** 依存のある部分 */
 define(
     [
-        "flight-component/domain/settings/load_feed"
-        //"js/components/add_list"
-        //,"js/components/load_list"
+        "flight-component/domain/settings/load_feed",
+        "flight-component/domain/index/all_items",
     ],
-    function(load_feed){
+    function(load_feed, all_items){
         function initialize(){
             console.log("init!");
-//            add_list.attachTo("#add_list", {
-//                input_value: '#todo',
-//                list_container: '#list'
-//            });
-//            load_list.attachTo("#list", {list_container: '#list'});
-
             $("#feed_list").height($(window).height()-50);
             load_feed.attachTo("#feed_list", {
 
             });
-
             $("#submit").on("click", function(){
-                //console.log("moge");
                 document.location.href="./add_subscription?url="+encodeURIComponent($("#feed").val());
             });
-
+            all_items.attachTo("#all_items", {});
         }
         return initialize;
     }

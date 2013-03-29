@@ -47,6 +47,11 @@ exports.initilize = function(app){
     for(var i in handlers_list){
         console.log(handlers_list[i]);
         var handler = require(handlers_list[i]);
-        app.get(handler.module.path(), handler.module.handle());
+        if(handler.module.method() === "GET"){
+            app.get(handler.module.path(), handler.module.handle());
+        }
+        else{
+            app.post(handler.module.path(), handler.module.handle());
+        }
     }
 }
