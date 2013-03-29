@@ -30,14 +30,39 @@ block content
                         li
                             a#all_items(href='#')
                                 | all(0)
+                        li
+                            a#fav_items(href='#')
+                                | later(0)
+                        li
+                            a#fav_items(href='#')
+                                | fav(0)
+                        li
+                            a#fav_items(href='#')
+                                | recommend(0)
+                        li.nav-header
+                            | Social
+                        li
+                            a(href="#")
+                                | twitter(0)
+                        li
+                            a(href="#")
+                                | hot(0)
+                        li.nav-header
+                            | Feeds
+                        li
+                            a(href="#")
+                                | category1(0)
+                        li
+                            a(href="#")
+                                | news(0)
                         li.nav-header
                             | Settings
                         li
                             a(href='#')
-                                | フィード設定
+                                | Feed
                         li
                             a(href='#')
-                                | クロール設定
+                                | Crawl
             .span10
                 div
                     未読
