@@ -20,6 +20,10 @@ define(
             });
             this.isMarking = false;
             this.marked = function (items) {
+                if(this.isMarking){
+                    console.log("now marking...");
+                    return;
+                }
                 var ids = "id=";
                 for(var i = 0; i < items.length; i++){
                     ids += items[i]._id;
@@ -28,6 +32,7 @@ define(
                     }
                 }
                 var self = this;
+                this.isMarking = true;
                 //データロード
                 $.ajax({
                     type: "GET",
@@ -41,6 +46,7 @@ define(
                             self.trigger(document, "clearList");
                             self.trigger(document, "loadList");
                         }
+                        self.isMarking = false;
                     }
                 });
             }

@@ -22,11 +22,16 @@ define(
             this.items = new Array();
             this.current_row = null;
             this.createItem = function(item){
+                var content = item.content;
+                if(typeof(content) === "undefined"){
+                    content = item.description;
+                }
+                content = item.description;
                 return $("<div class='span4' />",{
                     id:item._id
                 }).append("<h4><a href='"+item.link + "' target='_blank'>" + item.title + "</a></h4>")
                     .append(item.date+"<br/>")
-                    .append(item.content.replace(/&amp;/g, "&").replace(/&quot;/g, "\"").replace(/&lt;/g, "<").replace(/&gt;/g, ">"))
+                    .append(content.replace(/&amp;/g, "&").replace(/&quot;/g, "\"").replace(/&lt;/g, "<").replace(/&gt;/g, ">"))
                     ;
             }
             this.getCurrentRow=function(){
