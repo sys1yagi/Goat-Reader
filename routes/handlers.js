@@ -4,10 +4,10 @@ var handlers = function(){
     var handlers = new Array();
     var list=[
         //フィードのクロール
-        "CrawlHandler"
+        //"CrawlHandler"
 
         //アイテム一覧を取得する
-        ,"FeedsHandler"
+        "FeedsHandler"
 
         ,"UnmarkCountHandler"
 

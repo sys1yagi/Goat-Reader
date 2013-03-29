@@ -26,7 +26,6 @@ define(
                 if(typeof(content) === "undefined"){
                     content = item.description;
                 }
-                content = item.description;
                 return $("<div class='span4' />",{
                     id:item._id
                 }).append("<h4><a href='"+item.link + "' target='_blank'>" + item.title + "</a></h4>")
