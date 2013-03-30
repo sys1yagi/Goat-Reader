@@ -21,17 +21,38 @@ define(
             });
 
             this.createItem = function(item){
-                return $("<div/>",{
-                    id:item._id
-                }).append("<a href='"+item.url + "' target='_blank'>" + item.name + "</a>")
-                    .append("<hr/>")
-                    ;
+                var template = '\
+                    <div id="{{_id}}" class="row-fluid" style="margin-top:7px;border-bottom:1px dotted #000;">\
+                        <div class="span10">\
+                            <a href="{{url}}" target="_blank">{{name}}</a>\
+                        </div>\
+                        <div class="span2">\
+                            <img style="cursor:pointer;" id="{{_id}}_edit" src="img/edit.png"/>\
+                            <img style="cursor:pointer;" id="{{_id}}_delete" src="img/trash.gif"/>\
+                        </div>\
+                    </div>\
+                    \
+                ';
+                var element = Hogan.compile(template);
+                return element.render({_id:item._id, url:item.url, name:item.name});
             }
 
             this.addFeedList = function(feeds){
+
+                function attach(feed){
+                    //attach
+                    require([
+                        "flight-component/domain/settings/delete_feed"
+                    ],function(delete_feed){
+                        delete_feed.attachTo("#"+feed._id+"_delete", {});
+                    })
+                }
+
                 for(var i = 0; i < feeds.length; i++){
-                    var item = this.createItem(feeds[i]);
+                    var feed = feeds[i];
+                    var item = this.createItem(feed);
                     this.$node.append(item);
+                    attach(feed);
                 }
             }
             this.after("initialize", function(){

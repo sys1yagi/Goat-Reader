@@ -6,13 +6,15 @@
         "start": "node app"
     },
     "dependencies": {
-        "express": "3.1.0",
-        "jade": "*",
-        "mongoose": "*",
-        "tsd" : "*",
-        "forever":"*",
-        "xml2json":"*",
-        "cron":"*",
-        "time":"*"
+        "express": "3.1.0"
+        ,"jade": "*"
+        ,"mongoose": "*"
+        ,"tsd" : "*"
+        ,"forever":"*"
+        ,"xml2json":"*"
+        ,"cron":"*"
+        ,"time":"*"
+        ,"twitter-oauth":"*"
+
     }
 }
