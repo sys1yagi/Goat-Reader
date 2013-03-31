@@ -10,6 +10,17 @@ var express = require('express')
 var local_port = 3001;
 var app = express();
 
+//session conf
+var conf = {
+    db: {
+        db: 'goatreader',
+        host: 'localhost'
+    },
+    //ここの値は適宜書き換える
+    secret: 'LuYJYADZMqOQVhjUZqZAoHDbjAwy87'
+};
+var MongoStore = require('connect-mongo')(express);
+//sever conf
 app.configure(function () {
     app.set('port', process.env.PORT || local_port);
     app.set('views', __dirname + '/views');
@@ -18,8 +29,13 @@ app.configure(function () {
     app.use(express.logger('dev'));
     app.use(express.bodyParser());
     app.use(express.methodOverride());
-    app.use(express.cookieParser('your secret here'));
-    app.use(express.session());
+
+    app.use(express.cookieParser());
+    app.use(express.session({
+        secret: conf.secret,
+        maxAge: new Date(Date.now() + 3600000),
+        store: new MongoStore(conf.db)
+    }));
     app.use(app.router);
     app.use(express.static(path.join(__dirname, 'public')));
 });
@@ -35,7 +51,6 @@ app.get('/settings', routes.settings);
 
 var handlers = require("./routes/handlers");
 handlers.initilize(app);
-
 
 //start server
 var server = http.createServer(app).listen(app.get('port'), function () {

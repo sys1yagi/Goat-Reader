@@ -15,6 +15,6 @@
         ,"cron":"*"
         ,"time":"*"
         ,"twitter-oauth":"*"
-
+        ,"connect-mongo":"*"
     }
 }
