@@ -4,4 +4,43 @@
    Date: 2013/03/31
    Time: 16:00
    To change this template use File | Settings | File Templates.
-
+extends layout
+block content
+    .navbar.navbar-fixed-top.navbar-inverse
+        .navbar-inner
+            .container-fluid
+                a.btn.btn-navbar(data-toggle='collapse', data-target='.nav-collapse')
+                    span.icon-bar
+                    span.icon-bar
+                    span.icon-bar
+                a.brand(href='/')
+                    | Goat Reader
+                .nav-collapse
+                    ul.nav
+                        li.active
+                            a(href='#')
+                                | Home
+                        li
+                            a(href='./about')
+                                | About
+                        li
+                            a(href='./settings')
+                                | Settings
+    .container-fluid(style="margin-top:50px;")
+        .row-fluid
+            .span10
+                form.form-horizontal(action='', method='POST')
+                    fieldset
+                        #legend
+                            legend Login
+                        .control-group
+                            label.control-label(for='username') Username
+                            .controls
+                                input#username.input-xlarge(type='text', name='username', placeholder='')
+                        .control-group
+                            label.control-label(for='password') Password
+                            .controls
+                                input#password.input-xlarge(type='password', name='password', placeholder='')
+                        .control-group
+                            .controls
+                                button.btn.btn-success Login
