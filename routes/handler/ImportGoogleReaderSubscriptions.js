@@ -10,9 +10,9 @@ var Module = (function (_super) {
     Module.prototype.handle = function () {
         return function(req,res){
             header.writeHeadJson(res);
+            res.write(req.files.file.path); 
 
-
-
+            res.end();
         }
     };
     Module.prototype.path = function () {
