@@ -8,6 +8,7 @@
         "requirejs": "*",
         "es5-shim": "*",
         "hogan": "*",
-        "datejs": "*"
+        "datejs": "*",
+        "jquery-file-upload": "*"
     }
 }

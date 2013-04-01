@@ -9,10 +9,11 @@
 /** 依存のある部分 */
 define(
     [
-        "flight-component/domain/settings/load_feed",
-        "flight-component/domain/index/all_items",
+        "flight-component/domain/settings/load_feed"
+        ,"flight-component/domain/index/all_items"
+        ,"flight-component/domain/settings/import_google_reader_subscriptions"
     ],
-    function(load_feed, all_items){
+    function(load_feed, all_items, import_google_reader_subscriptions){
         function initialize(){
             console.log("init!");
             $("#feed_list").height($(window).height()-50);
@@ -23,6 +24,8 @@ define(
                 document.location.href="./add_subscription?url="+encodeURIComponent($("#feed").val());
             });
             all_items.attachTo("#all_items", {});
+
+            import_google_reader_subscriptions.attachTo("#gr_import", {});
         }
         return initialize;
     }

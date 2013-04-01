@@ -38,16 +38,26 @@ block content
                                 | 登録フィード
             .span10(style="overflow: scroll;")
                 .row-fluid
-                    .span6
-                        .input-append
-                            input.input-xxlarge#feed(type="text")
-                            button.btn#submit 登録
-
+                    div(style="margin-bottom:5px;") フィード登録 ...
+                        a#gr_import(style="cursor:pointer;") import
+                    div#file_upload(style="display:none;")
+                        input#file-input(type='file', name='file', style='display: none;')
+                        .input-prepend
+                            a.btn(onclick='$(\'#file-input\').click();')
+                                i.icon-folder-open
+                            span#cover.input-xlarge.uneditable-input select file
+                            button.btn#do_file_upload upload
+                    script(type="text/javascript")
+                        $('#file-input').change(function() {
+                            $('#cover').html($(this).val());
+                        });
+                    .input-append
+                        input.input-xxlarge#feed(type="text")
+                        button.btn#submit 登録
+                hr
                 .row-fluid
                     .span7#feed_list
                         div 登録フィード一覧
-
-
             hr
                 div
                     | © toshihiro yagi 2013

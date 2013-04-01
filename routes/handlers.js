@@ -3,12 +3,10 @@ var handlers = function(){
     var importRootPath="./handler/"
     var handlers = new Array();
     var list=[
-        //フィードのクロール
-        //"CrawlHandler"
-
         //アイテム一覧を取得する
         "FeedsHandler"
 
+        //既読処理
         ,"UnmarkCountHandler"
 
         //登録しているフィードを取得する
@@ -22,8 +20,12 @@ var handlers = function(){
 
         //フィードを更新
 
+        //Google Readerのsubscriptions.xmlをインポートする
+        ,"ImportGoogleReaderSubscriptions"
+
         //既読処理
         ,"MarkHandler"
+
 
         //カテゴリの追加
         //カテゴリの取得
