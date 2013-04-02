@@ -36,7 +36,6 @@ var Module = (function (_super) {
                 f(true);
             }
         });
-
     }
     /**
      * フィードの名称を取得する

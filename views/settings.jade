@@ -41,7 +41,7 @@ block content
                     div(style="margin-bottom:5px;") フィード登録 ...
                         a#gr_import(style="cursor:pointer;") import
                     div#file_upload(style="display:none;")
-                        form(action="/import_google_reader_subscriptions", method="POST")
+                        form(action="/import_google_reader_subscriptions", method="POST", enctype="multipart/form-data")
                             input#file-input(type='file', name='file', style='display: none;')
                             .input-prepend
                                 a.btn(onclick='$(\'#file-input\').click();')
