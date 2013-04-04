@@ -60,7 +60,7 @@ var server = http.createServer(app).listen(app.get('port'), function () {
 
 //cron jobs
 var cronJob = require('cron').CronJob;
-var cronTime = "*/10 * * * *";
+var cronTime = settings.cronTime;
 var Crawl = require("./routes/handler/CrawlHandler");
 var handle = Crawl.module.handle();
 job = new cronJob({

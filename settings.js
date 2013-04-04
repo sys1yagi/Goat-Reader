@@ -16,3 +16,6 @@ exports.auth = {
         ,twitterAuthCallbackURL:"set your oauth callback url."
     }
 };
+
+
+exports.cronTime = "*/10 * * * *";
