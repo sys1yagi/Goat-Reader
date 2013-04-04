@@ -95,6 +95,9 @@ var Module = (function (_super) {
             callback();
             return;
         }
+        console.log("-------------------------------")
+        console.log("name:"+src.name);
+        console.log("url:"+src.url);
         src = src.url;
         var uri = url.parse(src);
         http.get({
@@ -108,12 +111,17 @@ var Module = (function (_super) {
                     rss += chunk;
                 })
                 .on("end", function () {
-                    var json = parser.toJson(rss);
-                    var jsonObject = JSON.parse(json);
-                    var items = jsonObject["rdf:RDF"]["item"];
-                    insertItems(src, items, function () {
+                    try {
+                        var json = parser.toJson(rss);
+                        var jsonObject = JSON.parse(json);
+                        var items = jsonObject["rdf:RDF"]["item"];
+                        insertItems(src, items, function () {
+                            loadFeeds(feeds.tail(), callback);
+                        });
+                    } catch (e) {
+                        console.log(e);
                         loadFeeds(feeds.tail(), callback);
-                    });
+                    }
                 });
             ;
         }).on('error', function (e) {
@@ -125,7 +133,7 @@ var Module = (function (_super) {
     Module.prototype.handle = function () {
         return function (req, res) {
             start();
-            if(res !== null){
+            if (res !== null) {
                 header.writeHeadHTML(res);
             }
             FeedModel.Feed.find(null, function (err, feeds) {

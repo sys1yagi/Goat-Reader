@@ -2,12 +2,13 @@
  * Module dependencies.
  */
 var express = require('express')
-    , routes = require('./routes')
     , http = require('http')
     , path = require('path')
     , fs = require('fs')
+    , routes = require('./routes')
+    , settings = require("./settings")
     ;
-var local_port = 3001;
+var local_port = settings.local_port;
 var app = express();
 
 //session conf

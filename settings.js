@@ -5,10 +5,11 @@
  * Time: 0:46
  * To change this template use File | Settings | File Templates.
  */
-exports.settings = {
+exports.local_port=3001;
 
-    //mode: anonymouse | twitter
-    mode:"anonymouse"
+//boot mode
+exports.auth = {
+    anonymouse_name:"anonymouse"
     ,twitter:{
         twitterConsumerKey:"set your twitter app consumer key."
         ,twitterConsumerSecret:"set your twitter app consumer secret."
