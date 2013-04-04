@@ -20,7 +20,7 @@ var ItemSchema = new mongoose.Schema({
     ,category:[String]
     ,tags:[String]
     ,mark:Boolean
-    ,start:Boolean
+    ,fav:Boolean
 
 });
 var Item = db.model('item', ItemSchema);
