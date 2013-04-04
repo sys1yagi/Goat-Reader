@@ -111,6 +111,7 @@ var Module = (function (_super) {
             var json = xml2json.toJson(xml);
             var jsonObject = JSON.parse(json);
             forCategory(jsonObject.opml.body.outline, function(){
+                fs.unlinkSync(req.files.file.path);
                 res.write(util.makeResponseJsonBody("success", json));
                 res.end();
             });
