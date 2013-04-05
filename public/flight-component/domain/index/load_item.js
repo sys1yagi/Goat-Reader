@@ -27,13 +27,18 @@ define(
                 if(typeof(content) === "undefined"){
                     content = item.description;
                 }
+                content = content.replace(/&amp;/g, "&").replace(/&quot;/g, "\"").replace(/&lt;/g, "<").replace(/&gt;/g, ">");
+                //remove script && link
+                content = content.replace(/<script.*?>.*?<\/script>/g, "");
+                content = content.replace(/<link.*?>/g, "");
+
                 //date
                 var d = new Date(item.date).toString("yyyy/MM/dd hh:mm:ss");
                 return $("<div class='span4' />",{
                     id:item._id
                 }).append("<h4><a href='"+item.link + "' target='_blank'>" + item.title + "</a></h4>")
                     .append(d +"<br/>")
-                    .append(content.replace(/&amp;/g, "&").replace(/&quot;/g, "\"").replace(/&lt;/g, "<").replace(/&gt;/g, ">"))
+                    .append(content)
                     ;
             }
             this.getCurrentRow=function(){
