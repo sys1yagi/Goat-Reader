@@ -15,4 +15,4 @@ pids
 logs
 results
 npm-debug.log
-.bak
+*.bak
