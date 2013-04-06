@@ -19,4 +19,4 @@ var UserFeedSchema = new mongoose.Schema({
     ,category_id:String
 });
 var UserFeed = db.model('user_feed', UserFeedSchema);
-exports.Feed = UserFeed;
+exports.UserFeed = UserFeed;

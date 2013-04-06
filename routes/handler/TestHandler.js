@@ -4,7 +4,7 @@ var header = require("./RequestUtil");
 var util = require("./RequestUtil");
 
 var session = require("../../modules/util/Session");
-var User = require("../../modules/model/UserModel");
+var UserDao = require("../../modules/model/UserModelDao");
 var Module = (function (_super) {
     handler.extends(Module, _super);
     function Module() {
@@ -14,11 +14,12 @@ var Module = (function (_super) {
         return function(req,res){
             //TODO not yet implements
             header.writeHeadHTML(res);
+
+            UserDao.getUser(req,function(user){
+                res.end();
+            });
             res.write("moge");
-
             res.write("session="+session.getSessionToken(req));
-
-            res.end();
         }
     };
     Module.prototype.path = function () {
