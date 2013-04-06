@@ -6,7 +6,7 @@
  */
 var handler = require("./handler");
 var util = require("./RequestUtil");
-var FeedModel = require("../../model/FeedModel");
+var FeedModel = require("../../modules/model/FeedModel");
 var url = require('url');
 /**
  * @param id 削除するFeedのID

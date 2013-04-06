@@ -7,7 +7,7 @@
  */
 var handler = require("./handler");
 var util = require("./RequestUtil");
-var FeedModel = require("../../model/FeedModel");
+var FeedModel = require("../../modules/model/FeedModel");
 var url = require('url');
 var http = require("http");
 var parser = require('xml2json');

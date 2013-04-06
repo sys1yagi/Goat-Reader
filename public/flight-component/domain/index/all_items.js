@@ -23,7 +23,7 @@ define(
                 //データロード
                 $.ajax({
                     type:"GET",
-                    url:this.attr.load_url,
+                    url:this.attr.load_url+"?token="+session_token,
                     success:function(json){
                         if(json.status === "error"){
 

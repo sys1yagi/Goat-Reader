@@ -24,6 +24,10 @@ block content
     .container-fluid(style="margin-top:50px;")
         .row-fluid
             .span2
+                if  session_token == null
+                    div(style="padding:5px;background-color:#ffcccc;") Anonymouse Mode
+                else
+                    div Login
                 .well.sidebar-nav
                     ul.nav.nav-list
                         li.nav-header
@@ -42,6 +46,7 @@ block content
                         a#gr_import(style="cursor:pointer;") import
                     div#file_upload(style="display:none;")
                         form(action="/import_google_reader_subscriptions", method="POST", enctype="multipart/form-data")
+                            input(type="hidden", name="token", value="#{session_token}")
                             input#file-input(type='file', name='file', style='display: none;')
                             .input-prepend
                                 a.btn(onclick='$(\'#file-input\').click();')

@@ -7,7 +7,7 @@
  */
 var handler = require("./handler");
 var header = require("./RequestUtil");
-var FeedModel = require("../../model/FeedModel");
+var FeedModel = require("../../modules/model/FeedModel");
 var Module = (function (_super) {
     handler.extends(Module, _super);
     function Module() {

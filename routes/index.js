@@ -3,7 +3,7 @@
  */
 
 exports.index = function (req, res) {
-    res.render('index', { title: 'GoatReader -Home-' });
+    res.render('index', { title: 'GoatReader -Home-', session_token: req.session.session_token });
     /*
     if (!req.session.isLogin) {
         res.render('login', { title: 'GoatReader -Login-' });
@@ -14,11 +14,11 @@ exports.index = function (req, res) {
     */
 };
 exports.about = function (req, res) {
-    res.render('about', { title: 'GoatReader -About-' });
+    res.render('about', { title: 'GoatReader -About-', session_token: req.session.session_token });
 
 };
 exports.settings = function (req, res) {
-    res.render('settings', { title: 'GotReader -Settings-' });
+    res.render('settings', { title: 'GotReader -Settings-', session_token: req.session.session_token });
     /*
     if (!req.session.isLogin) {
         res.render('login', { title: 'GoatReader -Login-' });

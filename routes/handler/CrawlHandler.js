@@ -3,8 +3,8 @@ var header = require("./RequestUtil");
 var parser = require('xml2json');
 var http = require('http');
 var url = require('url');
-var ItemModel = require("../../model/ItemModel");
-var FeedModel = require("../../model/FeedModel");
+var ItemModel = require("../../modules/model/ItemModel");
+var FeedModel = require("../../modules/model/FeedModel");
 
 
 Array.prototype.head = function () {
@@ -64,7 +64,7 @@ var Module = (function (_super) {
                 itemModel.date = new Date(item["dc:date"]);
                 itemModel.subject = item["dc:subject"];
                 itemModel.source_feed = [src];
-                itemModel.mark = false;
+                //itemModel.mark = false;
                 ItemModel.Item.create(itemModel, function (e, inserted) {
                     insertItems(src, items.tail(), callback);
                 });

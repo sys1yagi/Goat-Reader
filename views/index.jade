@@ -23,6 +23,10 @@ block content
     .container-fluid(style="margin-top:50px;")
         .row-fluid
             .span2
+                if  session_token == null
+                    div(style="padding:5px;background-color:#ffcccc;") Anonymouse Mode
+                else
+                    div Login
                 .well.sidebar-nav
                     ul.nav.nav-list
                         li.nav-header
@@ -65,8 +69,9 @@ block content
                                 | Crawl
             .span10
                 div
-                    未読
-                    すべて
+                    span(style="padding:5px;")
+                        |未読
+                        |すべて
                     a.btn#mark_and_next 既読にして次へ
                 div#item_list(style="overflow: scroll;")
             hr

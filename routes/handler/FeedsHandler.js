@@ -8,7 +8,7 @@
 var handler = require("./handler");
 var header = require("./RequestUtil");
 var util = require("./RequestUtil");
-var ItemModel = require("../../model/ItemModel");
+var ItemModel = require("../../modules/model/ItemModel");
 /**
  * page_id: ページング
  * item_filter: 未読, 全て

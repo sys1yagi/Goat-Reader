@@ -34,6 +34,9 @@ var handlers = function(){
         //タグの追加
         //タグの取得
         //タグの削除
+
+        //test用
+        ,"TestHandler"
     ];
     for(var i = list.length-1; i >= 0; i--){
         handlers.push(importRootPath + list[i]);

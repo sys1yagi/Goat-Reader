@@ -4,7 +4,7 @@ var header = require("./RequestUtil");
 var util = require("./RequestUtil");
 var fs = require("fs");
 var xml2json = require("xml2json");
-var FeedModel = require("../../model/FeedModel");
+var FeedModel = require("../../modules/model/FeedModel");
 
 Array.prototype.head = function () {
     if (this.length == 0) {
@@ -39,10 +39,10 @@ var Module = (function (_super) {
     function isExists(model, f) {
         FeedModel.Feed.findOne({ url: model.url }, function (err, feed) {
             if (feed === null) {
-                f(false);
+                f(false, feed);
             }
             else {
-                f(true);
+                f(true, feed);
             }
         });
     }
@@ -64,7 +64,7 @@ var Module = (function (_super) {
         var model = new FeedModel.Feed();
         model.name = item.title;
         model.url = item.xmlUrl;
-        isExists(model, function(is_exists){
+        isExists(model, function(is_exists, feed){
             if(!is_exists){
                 FeedModel.Feed.create(model, function(e, m){
                     console.log("create:"+model);
@@ -77,7 +77,9 @@ var Module = (function (_super) {
                 });
             }
             else{
-                console.log("already exists! " + model);
+                console.log("already exists! " + feed);
+                //ユーザがあるか
+
                 if(items instanceof Array){
                     addSubscriptions(items.tail(), f);
                 }
@@ -110,11 +112,18 @@ var Module = (function (_super) {
             var xml = fs.readFileSync(req.files.file.path, "utf-8");
             var json = xml2json.toJson(xml);
             var jsonObject = JSON.parse(json);
-            forCategory(jsonObject.opml.body.outline, function(){
+            if(typeof jsonObject.opml === "undefined"){
                 fs.unlinkSync(req.files.file.path);
-                res.write(util.makeResponseJsonBody("success", json));
+                res.write(util.makeResponseJsonBody("error", "file error."));
                 res.end();
-            });
+            }
+            else{
+                forCategory(jsonObject.opml.body.outline, function(){
+                    fs.unlinkSync(req.files.file.path);
+                    res.write(util.makeResponseJsonBody("success", json));
+                    res.end();
+                });
+            }
         }
     };
     Module.prototype.path = function () {
