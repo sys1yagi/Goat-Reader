@@ -14,11 +14,10 @@ var db = DB.getDB();
  */
 var UserSchema = new mongoose.Schema({
     user_id:String
-    ,item_id:String
-    ,mark:Boolean
-    ,fav:Boolean
-    ,later:Boolean
-    ,tags:[String]
+    ,twitter_token:String
+    ,session_token:String
+    ,session_id:String
+    ,session_date:Date
 });
 var User = db.model('user', UserSchema);
 exports.User = User;

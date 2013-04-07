@@ -8,33 +8,39 @@
 var handler = require("./handler");
 var header = require("./RequestUtil");
 var FeedModel = require("../../modules/model/FeedModel");
+var UserFeedModelDao = require("../../modules/model/UserFeedModelDao");
+var UserModelDao = require("../../modules/model/UserModelDao");
 var Module = (function (_super) {
     handler.extends(Module, _super);
     function Module() {
         _super.apply(this, arguments);
     }
+
     /**
      * JSON形式のデータを生成する
      * @param status
      * @param body
      * @return {*}
      */
-    function makeResponseBody(status, body){
-        return JSON.stringify({status:status, body:body});
+    function makeResponseBody(status, body) {
+        return JSON.stringify({status: status, body: body});
     }
+
     Module.prototype.handle = function () {
-        return function(req,res){
-            //処理
-            header.writeHeadJson(res);
-            FeedModel.Feed.find().exec(function (err, feeds) {
-                console.log("load_todo_list loaded!");
-                if(err){
-                    res.write(makeResponseBody("error", "load error!"+err));
-                }
-                else{
-                    res.write(makeResponseBody("success", feeds));
-                }
-                res.end();
+        return function (req, res) {
+            UserModelDao.getUser(req, function (user) {
+                //処理
+                header.writeHeadJson(res);
+                UserFeedModelDao.getUserFeed(user, function(err, feeds){
+                    console.log("load_todo_list loaded!");
+                    if (err) {
+                        res.write(makeResponseBody("error", "load error!" + err));
+                    }
+                    else {
+                        res.write(makeResponseBody("success", feeds));
+                    }
+                    res.end();
+                });
             });
         }
     };

@@ -1,7 +1,6 @@
 //$CREATE_PATH
 var handler = require("./handler");
 var header = require("./RequestUtil");
-var util = require("./RequestUtil");
 
 var session = require("../../modules/util/Session");
 var UserDao = require("../../modules/model/UserModelDao");
@@ -12,7 +11,6 @@ var Module = (function (_super) {
     }
     Module.prototype.handle = function () {
         return function(req,res){
-            //TODO not yet implements
             header.writeHeadHTML(res);
 
             UserDao.getUser(req,function(user){
@@ -23,7 +21,6 @@ var Module = (function (_super) {
         }
     };
     Module.prototype.path = function () {
-        //TODO set path
         return "/test";
     };
     return Module;

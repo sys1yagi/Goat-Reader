@@ -6,8 +6,6 @@
  * To change this template use File | Settings | File Templates.
  */
 
-var sync = require('synchronize');
-
 var session = require("../util/Session");
 var UserModel = require("./UserModel");
 var Item = require("./ItemModel");
@@ -17,28 +15,32 @@ var Fiber = require("fibers");
  * 匿名ユーザを取得する
  * @param callback
  */
-function getAnonymouseUser(callback){
+function getAnonymouseUser(callback) {
     var fiber = Fiber.current;
-    UserModel.User.findOne({"user_id":"null"}, function(err, user){
+    UserModel.User.findOne({"user_id": "null"}, function (err, user) {
         fiber.run([err, user]);
     });
     var result = Fiber.yield();
     var err = result[0];
     var user = result[1];
-    if(user === null || user === ""){
+    if (user === null || user === "") {
         //create
         console.log("anonymouse null");
         var user = new UserModel.User();
-        user.user_id="null";
-        UserModel.User.create(user, function(err, user){
-           fiber.run([err, user]);
+        user.user_id = "null";
+        user.twitter_token = null;
+        user.session_token = null;
+        user.session_id = null;
+        user.session_date = null;
+        UserModel.User.create(user, function (err, user) {
+            fiber.run([err, user]);
         });
         var create = Fiber.yield();
         err = create[0];
         user = create[1];
         callback(user);
     }
-    else{
+    else {
         callback(user);
     }
 }
@@ -47,8 +49,9 @@ function getAnonymouseUser(callback){
  * セッション情報からUser情報を返す
  * @param req
  */
-exports.getUser = function (req,callback) {
-    if (typeof(session.getSessionToken(req)) === "undefined") {
+exports.getUser = function (req, callback) {
+    var session_token = session.getSessionToken(req);
+    if (typeof(session_token) === "undefined") {
         //anonymouse
         console.log("anonymouse mode");
         Fiber(getAnonymouseUser).run(callback);
@@ -56,6 +59,9 @@ exports.getUser = function (req,callback) {
     else {
         //TODO
         //user data
+        //UserModel.User.findOne({"session_token"});
+        //session_token
+
         callback(null);
     }
 }
