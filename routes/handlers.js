@@ -7,7 +7,7 @@ var handlers = function(){
         "FeedsHandler"
 
         //既読処理
-        ,"UnmarkCountHandler"
+        ,"UnreadCountHandler"
 
         //登録しているフィードを取得する
         ,"FeedSubscriptionHandler"

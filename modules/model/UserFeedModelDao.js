@@ -5,7 +5,6 @@
  * Time: 16:29
  * To change this template use File | Settings | File Templates.
  */
-var session = require("../util/Session");
 var FeedModel = require("./FeedModel");
 var UserModel = require("./UserModel");
 var UserFeedModel = require("./UserFeedModel");
@@ -105,5 +104,33 @@ exports.getUserFeed = function (user, feed_id, callback) {
 exports.getRemoveUserFeed = function (user, feed_id, callback) {
     UserFeedModel.UserFeed.remove({"user_id": user._id, "feed_id": feed_id }, function (err, user_feed) {
         callback(err, user_feed);
+    });
+}
+
+/**
+ * フィードを追加する
+ * @param user
+ * @param url
+ * @param callback
+ */
+exports.addUserFeed = function (user, feed, callback) {
+    if (user == null || feed == null) {
+        callback("null param: user=" + user + " feed:" + feed, null);
+        return;
+    }
+    //フィードが存在するかどうか
+    exports.getUserFeed(user, feed._id, function(err, user_feed){
+        if(user_feed !== null){
+            callback("already exists", user_feed);
+        }
+        else{
+            //user_feedに追加する
+            user_feed = new UserFeedModel.UserFeed();
+            user_feed.user_id = user._id;
+            user_feed.feed_id = feed._id;
+            user_feed.save(function(err){
+               callback(err, user_feed);
+            });
+        }
     });
 }
