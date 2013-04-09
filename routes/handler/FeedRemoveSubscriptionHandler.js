@@ -6,7 +6,8 @@
  */
 var handler = require("./handler");
 var util = require("./RequestUtil");
-var FeedModel = require("../../modules/model/FeedModel");
+var UserModelDao = require("../../modules/model/UserModelDao");
+var UserFeedModelDao = require("../../modules/model/UserFeedModelDao");
 var url = require('url');
 /**
  * @param id 削除するFeedのID
@@ -20,23 +21,24 @@ var Module = (function (_super) {
 
     Module.prototype.handle = function () {
         return function (req, res) {
-            //処理
-            util.writeHeadJson(res);
-            //FeedModel.Feed.find()
-            var id = req.query['id'];
-            if(typeof id === 'undefined'){
-                res.write(util.makeResponseJsonBody("error", "id is undefined"));
-                res.end();
-                return;
-            }
-            FeedModel.Feed.remove({"_id":id}, function(err){
-                if(err){
-                    res.write(util.makeResponseJsonBody("error", err));
+            UserModelDao.getUser(req, function (user) {
+                //処理
+                util.writeHeadJson(res);
+                var id = req.query['id'];
+                if (typeof id === 'undefined') {
+                    res.write(util.makeResponseJsonBody("error", "id is undefined"));
+                    res.end();
+                    return;
                 }
-                else{
-                    res.write(util.makeResponseJsonBody("success", id));
-                }
-                res.end();
+                UserFeedModelDao.getRemoveUserFeed(user, id, function (err, feed) {
+                    if (err) {
+                        res.write(util.makeResponseJsonBody("error", err));
+                    }
+                    else {
+                        res.write(util.makeResponseJsonBody("success", id));
+                    }
+                    res.end();
+                });
             });
         }
     };

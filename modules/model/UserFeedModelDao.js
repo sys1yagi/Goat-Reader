@@ -17,9 +17,9 @@ var UserFeedModel = require("./UserFeedModel");
  * @param callback
  */
 function getUserFeedFromFeedId(user, feed_id, callback) {
-    UserFeedModel.UserFeed.findOne({"user_id":user._id, "feed_id":feed_id}, function(err, user_feed){
-        if(err !== null){
-            console.log("err:"+err);
+    UserFeedModel.UserFeed.findOne({"user_id": user._id, "feed_id": feed_id}, function (err, user_feed) {
+        if (err !== null) {
+            console.log("err:" + err);
         }
         callback(err, user_feed);
     });
@@ -30,36 +30,41 @@ function getUserFeedFromFeedId(user, feed_id, callback) {
  * @param model
  * @param callback
  */
-exports.addUserFeed = function(user, model, callback){
-    console.log("add feed:"+model);
-    getUserFeedFromFeedId(user, model._id, function(err, feed){
-        if(feed === null){
+exports.addUserFeed = function (user, model, callback) {
+    console.log("add feed:" + model);
+    getUserFeedFromFeedId(user, model._id, function (err, feed) {
+        if (feed === null) {
             //create
             var newFeed = new UserFeedModel.UserFeed();
             newFeed.user_id = user._id;
             newFeed.feed_id = model._id;
-            UserFeedModel.UserFeed.create(newFeed, function(err2, created){
+            UserFeedModel.UserFeed.create(newFeed, function (err2, created) {
                 callback(err2, created);
             });
         }
-        else{
+        else {
             callback(err, feed);
         }
     });
 }
 
-
-function getFeeds(feeds, user_feeds, callback){
+/**
+ *
+ * @param feeds
+ * @param user_feeds
+ * @param callback
+ */
+function getFeeds(feeds, user_feeds, callback) {
     var user_feed = user_feeds.head();
-    if(user_feed === null){
+    if (user_feed === null) {
         callback();
         return;
     }
-    FeedModel.Feed.findOne({"_id":user_feed.feed_id}, function(err, feed){
-        if(err !== null){
-            console.log("err:"+err);
+    FeedModel.Feed.findOne({"_id": user_feed.feed_id}, function (err, feed) {
+        if (err !== null) {
+            console.log("err:" + err);
         }
-        if(feed !== null){
+        if (feed !== null) {
             feeds.push(feed);
         }
         getFeeds(feeds, user_feeds.tail(), callback);
@@ -67,15 +72,38 @@ function getFeeds(feeds, user_feeds, callback){
 }
 
 /**
- * Userが登録しているフィードを取得する
+ * Userが登録しているフィードを全て取得する
  * @param user
  * @param callback
  */
-exports.getUserFeed = function(user, callback){
+exports.getFeedsFromUserFeeds = function (user, callback) {
     var feeds = [];
-    UserFeedModel.UserFeed.find({"user_id":user._id}, function(err, user_feeds){
-        getFeeds(feeds, user_feeds, function(){
+    UserFeedModel.UserFeed.find({"user_id": user._id}, function (err, user_feeds) {
+        getFeeds(feeds, user_feeds, function () {
             callback(err, feeds);
         })
+    });
+}
+
+/**
+ * 指定したfeed_idのUserFeedModelを取得する。
+ * @param user
+ * @param feed_id
+ * @param callback
+ */
+exports.getUserFeed = function (user, feed_id, callback) {
+    UserFeedModel.UserFeed.findOne({"user_id": user._id, "feed_id": feed_id}, function (err, user_feed) {
+        callback(err, user_feed);
+    });
+}
+/**
+ *
+ * @param user
+ * @param feed_id
+ * @param callback
+ */
+exports.getRemoveUserFeed = function (user, feed_id, callback) {
+    UserFeedModel.UserFeed.remove({"user_id": user._id, "feed_id": feed_id }, function (err, user_feed) {
+        callback(err, user_feed);
     });
 }

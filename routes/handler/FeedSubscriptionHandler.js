@@ -31,7 +31,7 @@ var Module = (function (_super) {
             UserModelDao.getUser(req, function (user) {
                 //処理
                 header.writeHeadJson(res);
-                UserFeedModelDao.getUserFeed(user, function(err, feeds){
+                UserFeedModelDao.getFeedsFromUserFeeds(user, function(err, feeds){
                     console.log("load_todo_list loaded!");
                     if (err) {
                         res.write(makeResponseBody("error", "load error!" + err));
