@@ -68,18 +68,31 @@ block content
                             a(href='#')
                                 | Crawl
             .span10
-                div
-                    span(style="padding:5px;")
-                        |未読
-                        |すべて
-                    a.btn#mark_and_next 既読にして次へ
+                .well.well-small
+                    .btn-toolbar.row-fluid
+                        .span10
+                            .btn-group
+                                button.btn.disabled#unread_items_mode 未読
+                                button.btn#all_items_mode 全て
+                                a.btn.dropdown-toggle(data-toggle="dropdown",href="#") 並べ替え
+                                    span.caret
+                                ul.dropdown-menu
+                                    a 新しい順
+                                    a 古い順
+                            a.btn.btn-primary#mark_and_next 既読にして次へ
+                        .span2
+                            .btn-group
+                                a.btn.disabled#view_content_mode(style="padding-top:0px;padding-bottom:0px;")
+                                    img(src="img/content.png")
+                                a.btn#view_list_mode(style="padding-top:0px;padding-bottom:0px;")
+                                    img(src="img/list.png")
                 div#item_list(style="overflow: scroll;")
             hr
                 div
                     | © toshihiro yagi 2013
     script(type="text/javascript")
         window.onload = function(){
-            $("#item_list").height($(window).height()-80);
+            $("#item_list").height($(window).height()-160);
         }
         require(['flight-component/pages/index'], function(initialize) {
                 initialize();
