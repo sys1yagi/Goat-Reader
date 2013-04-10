@@ -1,7 +1,7 @@
 /**
  * Module dependencies.
  */
-require("./modules/util/jsExtensions");
+require("./modules/util/JsExtensions");
 var express = require('express')
     , http = require('http')
     , path = require('path')
