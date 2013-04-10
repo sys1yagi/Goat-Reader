@@ -8,7 +8,7 @@
 var handler = require("./handler");
 var header = require("./RequestUtil");
 var util = require("./RequestUtil");
-var ItemModel = require("../../modules/model/ItemModel");
+var UserItemModel = require("../../modules/model/UserItemModel");
 /**
  * 既読にする
  */
@@ -26,10 +26,10 @@ var Module = (function (_super) {
             var query = new Array();
 
             for(var i = 0; i < ids.length; i++){
-                query.push({"_id":ids[i]});
+                query.push({"item_id":ids[i]});
             }
             console.log(query);
-            ItemModel.Item.update({$or:query}, {$set:{mark:true}}, {multi:true}, function (err, numberAffected, raw) {
+            UserItemModel.UserItem.update({$or:query}, {$set:{mark:true}}, {multi:true}, function (err, numberAffected, raw) {
                 if (err){
                     console.log(err);
                     res.write(util.makeResponseJsonBody("error", err));

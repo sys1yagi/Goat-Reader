@@ -10,19 +10,20 @@ var UserModel = require("./UserModel");
 var UserFeedModel = require("./UserFeedModel");
 
 /**
- *
+ * FeedのIDから全てのUserFeedを取り出す
  * @param user
  * @param feed_id
  * @param callback
  */
-function getUserFeedFromFeedId(user, feed_id, callback) {
-    UserFeedModel.UserFeed.findOne({"user_id": user._id, "feed_id": feed_id}, function (err, user_feed) {
+exports.getAllUserFeedFromFeedId = function (feed_id, callback) {
+    UserFeedModel.UserFeed.find({"feed_id": feed_id}, function (err, user_feed) {
         if (err !== null) {
             console.log("err:" + err);
         }
         callback(err, user_feed);
     });
 }
+
 /**
  * フィードを登録する
  * @param user
@@ -31,7 +32,7 @@ function getUserFeedFromFeedId(user, feed_id, callback) {
  */
 exports.addUserFeed = function (user, model, callback) {
     console.log("add feed:" + model);
-    getUserFeedFromFeedId(user, model._id, function (err, feed) {
+    exports.getUserFeed(user, model._id, function (err, feed) {
         if (feed === null) {
             //create
             var newFeed = new UserFeedModel.UserFeed();

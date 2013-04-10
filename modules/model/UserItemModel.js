@@ -16,6 +16,7 @@ var db = DB.getDB();
 var UserItemSchema = new mongoose.Schema({
     user_id:String
     ,item_id:String
+    ,date:Date
     ,mark:Boolean
     ,fav:Boolean
     ,later:Boolean

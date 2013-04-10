@@ -1,6 +1,7 @@
 /**
  * Module dependencies.
  */
+require("./modules/util/jsExtensions");
 var express = require('express')
     , http = require('http')
     , path = require('path')
@@ -10,6 +11,8 @@ var express = require('express')
     ;
 var local_port = settings.local_port;
 var app = express();
+
+
 
 //session conf
 var conf = {

@@ -2,7 +2,7 @@
 var handler = require("./handler");
 var header = require("./RequestUtil");
 
-var session = require("../../modules/util/Session");
+var session = require("../../modules/util/RequestExtensions");
 var UserDao = require("../../modules/model/UserModelDao");
 var Module = (function (_super) {
     handler.extends(Module, _super);

@@ -3,27 +3,12 @@ var header = require("./RequestUtil");
 var parser = require('xml2json');
 var http = require('http');
 var url = require('url');
+var Fiber = require("fibers");
+
 var ItemModel = require("../../modules/model/ItemModel");
+var UserItemModelDao = require("../../modules/model/UserItemModelDao");
 var FeedModel = require("../../modules/model/FeedModel");
-
-
-Array.prototype.head = function () {
-    if (this.length == 0) {
-        return null;
-    }
-    return this[0];
-}
-Array.prototype.tail = function () {
-    if (this.length == 0) {
-        return null;
-    }
-    var tail = new Array();
-    var length = this.length;
-    for (var i = 1; i < length; i++) {
-        tail.push(this[i]);
-    }
-    return tail;
-}
+var UserFeedModelDao = require("../../modules/model/UserFeedModelDao");
 
 var Module = (function (_super) {
     handler.extends(Module, _super);
@@ -35,18 +20,52 @@ var Module = (function (_super) {
     function start() {
         startDate = new Date();
     }
-
     function end() {
         return new Date().getTime() - this.startDate.getTime();
     }
 
     /**
+     *
+     * @param feed
+     * @param item
+     * @param callback
+     */
+    function insertUserItem(feed, item, callback){
+        //feedからuser_feedを持ってくる
+        UserFeedModelDao.getAllUserFeedFromFeedId(feed._id, function(err, user_feeds){
+            if(err !== null || user_feeds === null){
+                console.log("error:"+err);
+                callback();
+            }
+            Fiber(function(){
+                var fiber = Fiber.current;
+                var size = user_feeds.length;
+                for(var i = 0; i < size; i++){
+                    var user_feed = user_feeds[i];
+                    //もってきたuserのリストからuser_itemに追加する
+                    UserItemModelDao.insertUserItem(user_feed.user_id, item, function(err, inserted){
+                        if(err !== null){
+                            console.log("err:"+err);
+                        }
+                        fiber.run(null);
+                    });
+                    Fiber.yield();
+                }
+                callback();
+            }).run();
+        });
+
+        //console.log("insertUserItem");
+        //callback();
+    }
+
+    /**
      * 取得したアイテムをdbに保存する
-     * @param src アイテムを取得したフィードのURL
+     * @param src_feed アイテムを取得したフィードのURL
      * @param items
      * @param callback 保存処理が終了した時に呼び出されるコールバック
      */
-    function insertItems(src, items, callback) {
+    function insertItems(src_feed, items, callback) {
         var item = items.head();
         if (item === null) {
             callback();
@@ -63,43 +82,56 @@ var Module = (function (_super) {
                 itemModel.content = item["content:encoded"];
                 itemModel.date = new Date(item["dc:date"]);
                 itemModel.subject = item["dc:subject"];
-                itemModel.source_feed = [src];
-                //itemModel.mark = false;
+                itemModel.source_feed = [src_feed.url];
                 ItemModel.Item.create(itemModel, function (e, inserted) {
-                    insertItems(src, items.tail(), callback);
+                    insertUserItem(src_feed, inserted, function(){
+                        insertItems(src_feed, items.tail(), callback);
+                    })
                 });
             }
             else {
                 //sourceに追加
                 var size = i.source_feed.length;
                 for (var count = 0; count < size; count++) {
-                    if (i.source_feed[count] === src) {
+                    if (i.source_feed[count] === src_feed.url) {
                         console.log("find!:" + item.link);
-                        insertItems(src, items.tail(), callback);
+
+                        //TODO 既に存在するのでUserItemを更新しなくてもいいかも?
+                        //パフォーマンスが問題になったら考える?
+                        insertUserItem(src_feed, i, function(){
+                            insertItems(src_feed, items.tail(), callback);
+                        });
                         return;
                     }
                 }
                 console.log("duplicate!:" + item.link);
-                i.source_feed.push(src);
+                i.source_feed.push(src_feed.url);
                 i.save(function (err) {
                     console.log("update!");
-                    insertItems(src, items.tail(), callback);
+                    //TODO ここも同じくUserItem側は触らなくてもいい気がする
+                    insertUserItem(src_feed, i, function(){
+                        insertItems(src_feed, items.tail(), callback);
+                    });
                 });
             }
         });
     }
 
+    /**
+     *
+     * @param feeds
+     * @param callback
+     */
     function loadFeeds(feeds, callback) {
-        var src = feeds.head();
-        if (src === null) {
+        var feed = feeds.head();
+        if (feed === null) {
             callback();
             return;
         }
         console.log("-------------------------------")
-        console.log("name:"+src.name);
-        console.log("url:"+src.url);
-        src = src.url;
-        var uri = url.parse(src);
+        console.log("name:" + feed.name);
+        console.log("url:" + feed.url);
+        var uri = url.parse(feed.url);
         http.get({
             host: uri.hostname,
             port: 80,
@@ -115,7 +147,7 @@ var Module = (function (_super) {
                         var json = parser.toJson(rss);
                         var jsonObject = JSON.parse(json);
                         var items = jsonObject["rdf:RDF"]["item"];
-                        insertItems(src, items, function () {
+                        insertItems(feed, items, function () {
                             loadFeeds(feeds.tail(), callback);
                         });
                     } catch (e) {
@@ -139,11 +171,11 @@ var Module = (function (_super) {
             FeedModel.Feed.find(null, function (err, feeds) {
                 loadFeeds(feeds, function () {
                     var ms = end();
+                    console.log(ms + "ms");
                     if (res !== null) {
                         res.write(ms + "ms");
                         res.end();
                     }
-                    console.log(ms + "ms");
                 });
             });
         };

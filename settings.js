@@ -18,4 +18,4 @@ exports.auth = {
 };
 
 
-exports.cronTime = "*/10 * * * *";
+exports.cronTime = "*/30 * * * *";

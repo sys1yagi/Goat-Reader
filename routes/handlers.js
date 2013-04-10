@@ -37,6 +37,7 @@ var handlers = function(){
 
         //test用
         ,"TestHandler"
+        //,"CrawlHandler"
     ];
     for(var i = list.length-1; i >= 0; i--){
         handlers.push(importRootPath + list[i]);
@@ -49,7 +50,8 @@ var handlers = function(){
  */
 exports.initilize = function(app){
     var handlers_list = handlers();
-    for(var i in handlers_list){
+    var size = handlers_list.length;
+    for(var i = 0; i < size; i++){
         console.log(handlers_list[i]);
         var handler = require(handlers_list[i]);
         if(handler.module.method() === "GET"){

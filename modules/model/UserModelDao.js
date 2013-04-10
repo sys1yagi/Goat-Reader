@@ -6,7 +6,7 @@
  * To change this template use File | Settings | File Templates.
  */
 
-var session = require("../util/Session");
+var session = require("../util/RequestExtensions");
 var UserModel = require("./UserModel");
 var Item = require("./ItemModel");
 var Fiber = require("fibers");
