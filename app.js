@@ -12,8 +12,6 @@ var express = require('express')
 var local_port = settings.local_port;
 var app = express();
 
-
-
 //session conf
 var conf = {
     db: {
@@ -52,9 +50,22 @@ app.configure('development', function () {
 app.get('/', routes.index);
 app.get('/about', routes.about);
 app.get('/settings', routes.settings);
+app.get('/login', routes.login);
 
 var handlers = require("./routes/handlers");
 handlers.initilize(app);
+
+//init twitter oauth
+var twitterAuth = require('twitter-oauth')({
+    domain: settings.auth.twitter.twitterDomain,
+    consumerKey: settings.auth.twitter.twitterConsumerKey,
+    consumerSecret: settings.auth.twitter.twitterConsumerSecret,
+    loginCallback: "http://"+settings.auth.twitter.twitterDomain+"/twitter/sessions/callback",
+    completeCallback:  "http://"+settings.auth.twitter.twitterDomain+"/search/beagles"
+});
+app.get('/twitter/sessions/connect', twitterAuth.oauthConnect);
+app.get('/twitter/sessions/callback', twitterAuth.oauthCallback);
+app.get('/twitter/sessions/logout', twitterAuth.logout);
 
 //start server
 var server = http.createServer(app).listen(app.get('port'), function () {

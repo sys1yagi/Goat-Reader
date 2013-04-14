@@ -21,11 +21,10 @@ var handlers = function(){
         //フィードを更新
 
         //Google Readerのsubscriptions.xmlをインポートする
-        ,"ImportGoogleReaderSubscriptions"
+        ,"ImportGoogleReaderSubscriptionsHandler"
 
         //既読処理
         ,"MarkHandler"
-
 
         //カテゴリの追加
         //カテゴリの取得

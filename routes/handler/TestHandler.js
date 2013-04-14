@@ -1,6 +1,7 @@
 //$CREATE_PATH
-var handler = require("./handler");
+var handler = require("./Handler");
 var header = require("./RequestUtil");
+var settings = require("../../settings");
 
 var session = require("../../modules/util/RequestExtensions");
 var UserDao = require("../../modules/model/UserModelDao");
@@ -13,11 +14,6 @@ var Module = (function (_super) {
         return function(req,res){
             header.writeHeadHTML(res);
 
-            UserDao.getUser(req,function(user){
-                res.end();
-            });
-            res.write("moge");
-            res.write("session="+session.getSessionToken(req));
         }
     };
     Module.prototype.path = function () {

@@ -5,7 +5,7 @@
  * Time: 15:19
  * To change this template use File | Settings | File Templates.
  */
-var handler = require("./handler");
+var handler = require("./Handler");
 var util = require("./RequestUtil");
 var FeedModelDao = require("../../modules/model/FeedModelDao");
 var UserFeedModelDao = require("../../modules/model/UserFeedModelDao");

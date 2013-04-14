@@ -5,7 +5,7 @@
  * Time: 15:01
  * 登録済みのFeed URLを取得する
  */
-var handler = require("./handler");
+var handler = require("./Handler");
 var header = require("./RequestUtil");
 var FeedModel = require("../../modules/model/FeedModel");
 var UserFeedModelDao = require("../../modules/model/UserFeedModelDao");

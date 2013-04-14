@@ -1,5 +1,5 @@
 //$CREATE_PATH
-var handler = require("./handler");
+var handler = require("./Handler");
 var header = require("./RequestUtil");
 var util = require("./RequestUtil");
 var fs = require("fs");

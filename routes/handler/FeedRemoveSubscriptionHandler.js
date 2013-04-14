@@ -4,7 +4,7 @@
  * Date: 2013/03/23
  * Time: 22:58
  */
-var handler = require("./handler");
+var handler = require("./Handler");
 var util = require("./RequestUtil");
 var UserModelDao = require("../../modules/model/UserModelDao");
 var UserFeedModelDao = require("../../modules/model/UserFeedModelDao");

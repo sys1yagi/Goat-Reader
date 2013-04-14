@@ -13,10 +13,20 @@
 exports.getSessionToken = function (req) {
     return req.session.session_token;
 }
-exports.setSettings = function(req){
-
+/**
+ *
+ * @param req
+ * @param settings
+ */
+exports.setSettings = function(req, settings){
+    req.settings = settings;
 }
+/**
+ *
+ * @param req
+ * @returns {*|Function|*|app.settings|app.locals.settings|Manager.settings|app.views.clients.settings}
+ */
 exports.getSettings = function(req){
-
+    return req.settings;
 }
 

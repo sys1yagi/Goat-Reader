@@ -1,4 +1,4 @@
-var handler = require("./handler");
+var handler = require("./Handler");
 var header = require("./RequestUtil");
 var parser = require('xml2json');
 var http = require('http');

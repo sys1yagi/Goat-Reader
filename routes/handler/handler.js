@@ -1,3 +1,5 @@
+var RequestExtensions = require("../../modules/util/RequestExtensions");
+
 var __extends = this.__extends || function (d, b) {
     function __() { this.constructor = d; }
     __.prototype = b.prototype;

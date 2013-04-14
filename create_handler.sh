@@ -12,7 +12,6 @@ else
 
 template='//$CREATE_PATH
 var handler = require("./handler");
-var header = require("./RequestUtil");
 var util = require("./RequestUtil");
 var Module = (function (_super) {
     handler.extends(Module, _super);
@@ -22,7 +21,7 @@ var Module = (function (_super) {
     Module.prototype.handle = function () {
         return function(req,res){
             //TODO not yet implements
-            header.writeHeadJson(res);
+            util.writeHeadJson(res);
         }
     };
     Module.prototype.path = function () {

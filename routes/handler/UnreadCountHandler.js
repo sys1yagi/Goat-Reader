@@ -5,7 +5,7 @@
  * Time: 15:01
  * 未読件数を取得する
  */
-var handler = require("./handler");
+var handler = require("./Handler");
 var header = require("./RequestUtil");
 var util = require("./RequestUtil");
 var ItemModel = require("../../modules/model/ItemModel");

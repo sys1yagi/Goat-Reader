@@ -24,9 +24,12 @@ block content
         .row-fluid
             .span2
                 if  session_token == null
-                    div(style="padding:5px;background-color:#ffcccc;") Anonymouse Mode
+                    div(style="padding:5px;background-color:#ffcccc;text-align:center;") Anonymouse Mode
+                        br
+                        a(href="")
+                            img(src="https://dev.twitter.com/sites/default/files/images_documentation/sign-in-with-twitter-gray.png")
                 else
-                    div Login
+                    div Logout
                 .well.sidebar-nav
                     ul.nav.nav-list
                         li.nav-header

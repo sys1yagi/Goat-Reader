@@ -5,7 +5,7 @@
  * Time: 15:01
  * To change this template use File | Settings | File Templates.
  */
-var handler = require("./handler");
+var handler = require("./Handler");
 var header = require("./RequestUtil");
 var util = require("./RequestUtil");
 var ItemModel = require("../../modules/model/ItemModel");
