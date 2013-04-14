@@ -6,16 +6,15 @@
  * To change this template use File | Settings | File Templates.
  */
 exports.local_port=3001;
-
+exports.debug = false;
 //boot mode
 exports.auth = {
-    anonymouse_name:"anonymouse"
-    ,twitter:{
+    twitter:{
         twitterConsumerKey:"set your twitter app consumer key."
         ,twitterConsumerSecret:"set your twitter app consumer secret."
         ,twitterAuthCallbackURL:"set your oauth callback url."
+        ,twitterDomain:"set your domain."
     }
 };
-
 
 exports.cronTime = "*/30 * * * *";
