@@ -6,7 +6,9 @@
  * To change this template use File | Settings | File Templates.
  */
 'use strict';
-
+/**
+ * 未読件数の取得
+ */
 define(
     [
         'components/flight/lib/component'
