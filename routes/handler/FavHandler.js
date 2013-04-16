@@ -1,5 +1,5 @@
 //$CREATE_PATH
-var handler = require("./handler");
+var handler = require("./Handler");
 var util = require("./RequestUtil");
 var Module = (function (_super) {
     handler.extends(Module, _super);

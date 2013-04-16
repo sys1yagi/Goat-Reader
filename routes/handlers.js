@@ -28,7 +28,7 @@ var handlers = function(){
 
         //ふぁぼ
         ,"FavHandler"
-        
+
         //カテゴリの追加
         //カテゴリの取得
         //カテゴリの削除
