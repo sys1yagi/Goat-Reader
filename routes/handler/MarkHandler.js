@@ -24,12 +24,16 @@ var Module = (function (_super) {
 
             var ids = req.query.id.split(",");
             var query = new Array();
-
+            var marked = true;
+            if(req.query.mark === "false"){
+                marked = false;
+            }
+            console.log("marked:"+marked);
             for(var i = 0; i < ids.length; i++){
                 query.push({"item_id":ids[i]});
             }
             console.log(query);
-            UserItemModel.UserItem.update({$or:query}, {$set:{mark:true}}, {multi:true}, function (err, numberAffected, raw) {
+            UserItemModel.UserItem.update({$or:query}, {$set:{mark:marked}}, {multi:true}, function (err, numberAffected, raw) {
                 if (err){
                     console.log(err);
                     res.write(util.makeResponseJsonBody("error", err));

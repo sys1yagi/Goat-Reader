@@ -19,7 +19,7 @@ define(
                 load_url: 'marked'
             });
             this.isMarking = false;
-            this.marked = function (items) {
+            this.marked = function (items, mark) {
                 if(this.isMarking){
                     console.log("now marking...");
                     return;
@@ -31,6 +31,7 @@ define(
                         ids+=",";
                     }
                 }
+                ids+="&mark="+mark;
                 var self = this;
                 this.isMarking = true;
                 //データロード
@@ -55,9 +56,13 @@ define(
                 this.on("click", function () {
                     this.trigger(document, "getListFeeds", {
                         callback:function(items){
-                            self.marked(items);
+                            self.marked(items, true);
                         }
                     });
+                });
+
+                this.on(document, "item_mark", function(event, items, mark){
+                    this.marked(items, mark);
                 });
             });
         }

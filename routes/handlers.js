@@ -26,6 +26,9 @@ var handlers = function(){
         //既読処理
         ,"MarkHandler"
 
+        //ふぁぼ
+        ,"FavHandler"
+        
         //カテゴリの追加
         //カテゴリの取得
         //カテゴリの削除

@@ -24,6 +24,19 @@ define(
             this.current_row = null;
 
             /**
+             * 新しいItemにFlightコンポーネントをAttachする
+             * @param newElement
+             */
+            this.itemAttach = function(item){
+                //attach
+                require(['flight-component/domain/index/item_controller'], function(item_controller) {
+                    item_controller.attachTo("#"+item._id, {
+                        fav_id:"fav_"+item._id
+                    });
+                });
+            }
+
+            /**
              * Itemの殆どの情報を表示する
              * @param item
              * @returns {*|jQuery}
@@ -44,11 +57,16 @@ define(
                 var template = '\
                     <div class="span4" id="{{_id}}">\
                         <h4><a href="{{link}}" target="_blank">{{title}}</a></h4>\
-                        {{date}}<br/>\
+                        <div>\
+                            {{date}}\
+                            <img src="img/unfav.png" id="{{fav_id}}" width="20px">\
+                        </div>\
+                        <br/>\
                     </div>\
                 ';
-                var element = Hogan.compile(template);
-                return $(element.render({_id:item._id, link:item.link, title:item.title, date:d})).append(content);
+                var fav_id = "fav_"+item._id;
+                var element = $(Hogan.compile(template).render({_id:item._id, link:item.link, title:item.title, date:d, fav_id:fav_id})).append(content);
+                return element;
             }
             /**
              * Itemのタイトルだけ表示
@@ -61,11 +79,15 @@ define(
                 var template = '\
                     <div class="span4" id="{{_id}}">\
                         <h4><a href="{{link}}" target="_blank">{{title}}</a></h4>\
-                        {{date}}<br/>\
+                        <div>\
+                            {{date}}\
+                            <img src="img/unfav.png" id="{{fav_id}}" width="20px">\
+                        </div>\
                     </div>\
                 ';
-                var element = Hogan.compile(template);
-                return $(element.render({_id:item._id, link:item.link, title:item.title, date:d}));
+                var fav_id = "fav_"+item._id;
+                var element = $(Hogan.compile(template).render({_id:item._id, link:item.link, title:item.title, date:d, fav_id:fav_id}));
+                return element;
             }
             this.createItem = function(item){
                 if(this.attr.default_display_mode === "content"){
@@ -94,6 +116,7 @@ define(
                     var item = this.createItem(feed);
                     var row = this.getCurrentRow();
                     row.append(item);
+                    this.itemAttach(feed);
                 }
             };
             this.loadList = function(){
