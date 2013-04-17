@@ -30,8 +30,10 @@ define(
             this.itemAttach = function(item){
                 //attach
                 require(['flight-component/domain/index/item_controller'], function(item_controller) {
-                    item_controller.attachTo("#"+item._id, {
+                    item_controller.attachTo("#"+item._id,
+                    {
                         fav_id:"fav_"+item._id
+                        ,item:item
                     });
                 });
             }

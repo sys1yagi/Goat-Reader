@@ -23,11 +23,37 @@ define(
                 ,read_url:'marked'
                 ,fav_id:""
                 ,later_id:""
+                ,item:null
 
             });
+            this.setFav = function(isFav){
+                console.log("id:"+this.$node.attr("id"));
+                console.log($("#"+this.attr.fav_id).attr("src"));
+                console.log("fav:"+this.attr.item.fav);
+                /*
+                $.ajax({
+                    type: "GET",
+                    url: this.attr.fav_url,
+                    data:ids,
+                    success: function (json) {
+                        if (json.status === "error") {
+                            console.log("error:"+json.body);
+                        }
+                        else {
+                            //self.trigger(document, "clearList");
+                            //self.trigger(document, "loadList");
+                            //画像を変更
+
+                        }
+                        self.isMarking = false;
+                    }
+                });
+                */
+            }
+
             this.after("initialize", function(){
                 this.on("#"+this.attr.fav_id, "click", function(){
-                    console.log("");
+                    this.setFav(true);
                 });
             });
         }

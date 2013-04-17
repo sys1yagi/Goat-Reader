@@ -8,7 +8,7 @@
 var Fiber = require("fibers");
 var UserItemModel = require("./UserItemModel");
 var ItemModel = require("./ItemModel");
-
+var $ = require('jquery');
 exports.getUnreadItemCount = function (user, callback) {
     UserItemModel.UserItem.count({"user_id": user._id, "mark": false}, function (err, items) {
         callback(err, items);
@@ -29,15 +29,15 @@ exports.getUnreadItems = function (user, count, callback) {
             for (var i = 0; i < size; i++) {
                 var user_item = user_items[i];
                 ItemModel.Item.findOne({"_id": user_item.item_id}, function (err, item) {
-                    fiber.run([err, item]);
+                    fiber.run({err:err, item:item});
                 });
-                //TODO user_itemのプロパティを付加する
-
                 var result = Fiber.yield();
-                var err = result[0];
-                var item = result[1];
+                var err = result.err;
+                var item = result.item;
                 if (err === null && item !== null) {
-                    items.push(item);
+                    var merged_object = JSON.parse((JSON.stringify(item) + JSON.stringify(user_item)).replace(/}{/g,","));
+                    merged_object._id = item._id;
+                    items.push(merged_object);
                 }
             }
             callback(null, items);

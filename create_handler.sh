@@ -13,6 +13,7 @@ else
 template='//$CREATE_PATH
 var handler = require("./Handler");
 var util = require("./RequestUtil");
+var UserItemModel = require("../../modules/model/UserItemModel");
 var Module = (function (_super) {
     handler.extends(Module, _super);
     function Module() {
@@ -20,8 +21,10 @@ var Module = (function (_super) {
     }
     Module.prototype.handle = function () {
         return function(req,res){
-            //TODO not yet implements
-            util.writeHeadJson(res);
+            UserModelDao.getUser(req, function (user) {
+                //TODO not yet implements
+                util.writeHeadJson(res);
+            }
         }
     };
     Module.prototype.path = function () {

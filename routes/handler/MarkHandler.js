@@ -9,6 +9,7 @@ var handler = require("./Handler");
 var header = require("./RequestUtil");
 var util = require("./RequestUtil");
 var UserItemModel = require("../../modules/model/UserItemModel");
+var UserModelDao = require("../../modules/model/UserModelDao");
 /**
  * 既読にする
  */
@@ -17,33 +18,36 @@ var Module = (function (_super) {
     function Module() {
         _super.apply(this, arguments);
     }
-    Module.prototype.handle = function () {
-        return function(req,res){
-            //処理
-            header.writeHeadJson(res);
 
-            var ids = req.query.id.split(",");
-            var query = new Array();
-            var marked = true;
-            if(req.query.mark === "false"){
-                marked = false;
-            }
-            console.log("marked:"+marked);
-            for(var i = 0; i < ids.length; i++){
-                query.push({"item_id":ids[i]});
-            }
-            console.log(query);
-            UserItemModel.UserItem.update({$or:query}, {$set:{mark:marked}}, {multi:true}, function (err, numberAffected, raw) {
-                if (err){
-                    console.log(err);
-                    res.write(util.makeResponseJsonBody("error", err));
+    Module.prototype.handle = function () {
+        return function (req, res) {
+            UserModelDao.getUser(req, function (user) {
+                //処理
+                header.writeHeadJson(res);
+
+                var ids = req.query.id.split(",");
+                var query = new Array();
+                var marked = true;
+                if (req.query.mark === "false") {
+                    marked = false;
                 }
-                else{
-                    console.log('The number of updated documents was %d', numberAffected);
-                    console.log('The raw response from Mongo was ', raw);
-                    res.write(util.makeResponseJsonBody("success", raw));
+                console.log("marked:" + marked);
+                for (var i = 0; i < ids.length; i++) {
+                    query.push({"item_id": ids[i], "user_id":user._id});
                 }
-                res.end();
+                console.log(query);
+                UserItemModel.UserItem.update({$or: query}, {$set: {mark: marked}}, {multi: true}, function (err, numberAffected, raw) {
+                    if (err) {
+                        console.log(err);
+                        res.write(util.makeResponseJsonBody("error", err));
+                    }
+                    else {
+                        console.log('The number of updated documents was %d', numberAffected);
+                        console.log('The raw response from Mongo was ', raw);
+                        res.write(util.makeResponseJsonBody("success", raw));
+                    }
+                    res.end();
+                });
             });
         }
     };
