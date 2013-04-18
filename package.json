@@ -19,10 +19,7 @@
         ,"twitter-oauth":"*"
         ,"connect-mongo":"*"
         ,"fibers": "1.0.x"
-        ,"synchronize":"*"
-        ,"jsdom":"*"
-        ,"xmlhttprequest":"*"
-        ,"jQuery":"*"
+        ,"jasmine-node":"*"
 
     }
 }
