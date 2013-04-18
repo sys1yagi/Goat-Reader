@@ -61,7 +61,7 @@ define(
                         <h4><a href="{{link}}" target="_blank">{{title}}</a></h4>\
                         <div>\
                             {{date}}\
-                            <img src="img/unfav.png" id="{{fav_id}}" width="20px">\
+                            <img style="cursor:pointer;" src="img/unfav.png" id="{{fav_id}}" width="20px">\
                         </div>\
                         <br/>\
                     </div>\
@@ -83,7 +83,7 @@ define(
                         <h4><a href="{{link}}" target="_blank">{{title}}</a></h4>\
                         <div>\
                             {{date}}\
-                            <img src="img/unfav.png" id="{{fav_id}}" width="20px">\
+                            <img style="cursor:pointer;" src="img/unfav.png" id="{{fav_id}}" width="20px">\
                         </div>\
                     </div>\
                 ';

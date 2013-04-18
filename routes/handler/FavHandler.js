@@ -20,9 +20,7 @@ var Module = (function (_super) {
                     marked = false;
                 }
                 query = {"item_id": id, "user_id": user._id};
-
-                console.log(query);
-                UserItemModel.UserItem.update({$or: query}, {$set: {fav: marked}}, {multi: true}, function (err, numberAffected, raw) {
+                UserItemModel.UserItem.update(query, {$set: {fav: marked}}, {multi: true}, function (err, numberAffected, raw) {
                     if (err) {
                         console.log(err);
                         res.write(util.makeResponseJsonBody("error", err));
