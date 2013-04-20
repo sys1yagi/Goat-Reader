@@ -1,5 +1,5 @@
 var handler = require("./Handler");
-var header = require("./RequestUtil");
+var util = require("../../modules/util/RequestExtensions");
 var parser = require('xml2json');
 var http = require('http');
 var url = require('url');
@@ -166,7 +166,7 @@ var Module = (function (_super) {
         return function (req, res) {
             start();
             if (res !== null) {
-                header.writeHeadHTML(res);
+                util.writeHeadHTML(res);
             }
             FeedModel.Feed.find(null, function (err, feeds) {
                 loadFeeds(feeds, function () {

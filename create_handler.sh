@@ -12,7 +12,7 @@ else
 
 template='//$CREATE_PATH
 var handler = require("./Handler");
-var util = require("./RequestUtil");
+var util = require("../../modules/util/RequestExtensions");
 var UserItemModel = require("../../modules/model/UserItemModel");
 var Module = (function (_super) {
     handler.extends(Module, _super);

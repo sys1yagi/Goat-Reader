@@ -6,7 +6,7 @@
  * 登録済みのFeed URLを取得する
  */
 var handler = require("./Handler");
-var header = require("./RequestUtil");
+var util = require("../../modules/util/RequestExtensions");
 var FeedModel = require("../../modules/model/FeedModel");
 var UserFeedModelDao = require("../../modules/model/UserFeedModelDao");
 var UserModelDao = require("../../modules/model/UserModelDao");
@@ -30,7 +30,7 @@ var Module = (function (_super) {
         return function (req, res) {
             UserModelDao.getUser(req, function (user) {
                 //処理
-                header.writeHeadJson(res);
+                util.writeHeadJson(res);
                 UserFeedModelDao.getFeedsFromUserFeeds(user, function(err, feeds){
                     console.log("load_todo_list loaded!");
                     if (err) {

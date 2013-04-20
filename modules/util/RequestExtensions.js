@@ -30,3 +30,35 @@ exports.getSettings = function(req){
     return req.settings;
 }
 
+/**
+ * レスポンスヘッダにjsonをセットする
+ * @param res
+ */
+exports.writeHeadJson = function (res) {
+    res.writeHead(200, {'Content-Type': 'text/json; charset=utf-8'});
+}
+/**
+ * レスポンスヘッダにhtmlをセットする
+ * @param res
+ */
+exports.writeHeadHTML = function(res){
+    res.writeHead(200, {'Content-Type': 'text/html; charset=utf-8'});
+}
+/**
+ * レスポンスヘッダにplainをセットする
+ * @param res
+ */
+exports.writeHeadText = function(res){
+    res.writeHead(200, {'Content-Type': 'text/plain; charset=utf-8'});
+}
+/**
+ * レスポンスをjsonにする
+ * @param status
+ * @param body
+ * @returns {*}
+ */
+exports.makeResponseJsonBody = function(status, body){
+    return JSON.stringify({status:status, body:body});
+}
+
+

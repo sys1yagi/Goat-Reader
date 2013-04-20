@@ -1,7 +1,6 @@
 //$CREATE_PATH
 var handler = require("./Handler");
-var header = require("./RequestUtil");
-var util = require("./RequestUtil");
+var util = require("../../modules/util/RequestExtensions");
 var fs = require("fs");
 var xml2json = require("xml2json");
 var Fiber = require("fibers");
@@ -142,7 +141,7 @@ var Module = (function (_super) {
     Module.prototype.handle = function () {
         return function (req, res) {
             UserModelDao.getUser(req, function (user) {
-                header.writeHeadJson(res);
+                util.writeHeadJson(res);
                 //check stat
                 var stat = fs.statSync(req.files.file.path);
                 var xml = fs.readFileSync(req.files.file.path, "utf-8");

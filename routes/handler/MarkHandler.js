@@ -6,8 +6,7 @@
  * To change this template use File | Settings | File Templates.
  */
 var handler = require("./Handler");
-var header = require("./RequestUtil");
-var util = require("./RequestUtil");
+var util = require("../../modules/util/RequestExtensions");
 var UserItemModel = require("../../modules/model/UserItemModel");
 var UserModelDao = require("../../modules/model/UserModelDao");
 /**
@@ -23,7 +22,7 @@ var Module = (function (_super) {
         return function (req, res) {
             UserModelDao.getUser(req, function (user) {
                 //処理
-                header.writeHeadJson(res);
+                util.writeHeadJson(res);
 
                 var ids = req.query.id.split(",");
                 var query = new Array();

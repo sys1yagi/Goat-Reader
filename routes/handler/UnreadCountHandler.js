@@ -6,8 +6,7 @@
  * 未読件数を取得する
  */
 var handler = require("./Handler");
-var header = require("./RequestUtil");
-var util = require("./RequestUtil");
+var util = require("../../modules/util/RequestExtensions");
 var ItemModel = require("../../modules/model/ItemModel");
 var UserItemModelDao = require("../../modules/model/UserItemModelDao");
 var UserModelDao = require("../../modules/model/UserModelDao");
@@ -25,7 +24,7 @@ var Module = (function (_super) {
         return function(req,res){
             UserModelDao.getUser(req, function(user){
                 //処理
-                header.writeHeadJson(res);
+                util.writeHeadJson(res);
                 UserItemModelDao.getUnreadItemCount(user, function(err, items){
                     if(err){
                         res.write(util.makeResponseJsonBody("error", err));

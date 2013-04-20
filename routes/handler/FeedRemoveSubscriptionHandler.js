@@ -5,7 +5,7 @@
  * Time: 22:58
  */
 var handler = require("./Handler");
-var util = require("./RequestUtil");
+var util = require("../../modules/util/RequestExtensions");
 var UserModelDao = require("../../modules/model/UserModelDao");
 var UserFeedModelDao = require("../../modules/model/UserFeedModelDao");
 var url = require('url');

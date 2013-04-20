@@ -6,7 +6,7 @@
  * To change this template use File | Settings | File Templates.
  */
 var handler = require("./Handler");
-var util = require("./RequestUtil");
+var util = require("../../modules/util/RequestExtensions");
 var FeedModelDao = require("../../modules/model/FeedModelDao");
 var UserFeedModelDao = require("../../modules/model/UserFeedModelDao");
 var UserModelDao = require("../../modules/model/UserModelDao");
