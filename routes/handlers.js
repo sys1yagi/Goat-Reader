@@ -39,7 +39,7 @@ var handlers = function(){
 
         //test用
         ,"TestHandler"
-        //,"CrawlHandler"
+        ,"CrawlHandler"
     ];
     for(var i = list.length-1; i >= 0; i--){
         handlers.push(importRootPath + list[i]);
