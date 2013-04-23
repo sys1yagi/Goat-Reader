@@ -25,8 +25,6 @@ var Module = (function (_super) {
         return function (req, res) {
             UserModelDao.getUser(req, function (user) {
                 //TODO userチェック
-
-
                 //処理
                 util.writeHeadHTML(res);
                 var url_parts = url.parse(req.url, true);

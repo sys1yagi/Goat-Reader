@@ -10,8 +10,7 @@ var factory = FeedParser.FeedParserFactory;
 var xml2json = require('xml2json');
 var http = require('http');
 var url = require('url');
-var Fiber = require("fibers");
-
+var FiberMini = require("../lib/FiberMini").FiberMini;
 function getXML(url_string, callback) {
     var uri = url.parse(url_string);
     http.get({
@@ -27,10 +26,8 @@ function getXML(url_string, callback) {
             .on("end", function () {
                 try {
                     var json = xml2json.toJson(rss);
-                    //var jsonObject = JSON.parse(json);
-                    //var items = jsonObject["rdf:RDF"]["item"];
-
-                    callback(json);
+                    var jsonObject = JSON.parse(json);
+                    callback(jsonObject);
                 } catch (e) {
                     console.log(e);
                 }
@@ -41,83 +38,71 @@ function getXML(url_string, callback) {
         });
 }
 
-var FiberMini = function () {
-    var self = {
-        isEnd: false,
-        dict: {},
-        run: function (f) {
-            f();
-        },
-        wait: function (timeout) {
-            if(typeof timeout === "undefined"){
-                timeout = 100000000;
-            }
-            waitsFor(function () {
-                if (self.isEnd) {
-                    self.isEnd = false;
-                    return true;
-                }
-                return self.isEnd;
-            }, "timeout", timeout);
-        },
-        notify: function () {
-            self.isEnd = true;
-        },
-        put: function (key, value) {
-            self.dict[key] = value;
-        },
-        get: function (key) {
-            return self.dict[key];
-        }
-    };
-    return self;
-}
-describe("async test", function () {
+describe('FeedParserFactory', function () {
+    it('RSSのルートがrdf:RDFならをRDFParserを生成する', function () {
+        var fiber = new FiberMini();
+        fiber.run(function () {
+            runs(function () {
+                getXML("http://b.hatena.ne.jp/entrylist/it?sort=hot&threshold=&mode=rss", function (json) {
+                    var parser = factory.createParser(json);
+                    expect(parser).not.toEqual(null);
+                    console.log("parser:" + parser.constructor.name);
+                    expect(parser.constructor.name).toEqual("RDFParser");
+                    fiber.notify();
+                });
+                fiber.wait();
+
+            });
+        })
+    });
+
+    it('RSSのルートがrssならをRSSParserを生成する', function () {
+        var fiber = new FiberMini();
+        fiber.run(function () {
+            runs(function () {
+                getXML("http://sankei.jp.msn.com/rss/news/west_flash.xml", function (json) {
+                    var parser = factory.createParser(json);
+                    expect(parser).not.toEqual(null);
+                    console.log("parser:" + parser.constructor.name);
+                    expect(parser.constructor.name).toEqual("RSSParser");
+                    fiber.notify();
+                });
+                fiber.wait();
+            });
+        })
+    });
+});
+
+describe("RDFParser", function () {
+    var rdf = null;
     var fiber = new FiberMini();
     fiber.run(function () {
-        console.log("1");
         runs(function () {
-            console.log("4");
-            getXML("http://b.hatena.ne.jp/entrylist/it?sort=hot&threshold=&mode=rss", function (xml) {
-                console.log("6");
-                fiber.put("xml", xml);
+            getXML("http://b.hatena.ne.jp/entrylist/it?sort=hot&threshold=&mode=rss", function (json) {
+                var parser = factory.createParser(json);
+                expect(parser).not.toEqual(null);
+                console.log("parser:" + parser.constructor.name);
+                expect(parser.constructor.name).toEqual("RDFParser");
+                rdf = json;
                 fiber.notify();
             });
             fiber.wait();
-            console.log("5");
         });
-        console.log("2");
-        runs(function () {
-            console.log("7");
-            var xml = fiber.get("xml");
-            expect(xml).not.toEqual(null);
-            console.log("8");
-        });
-        console.log("3");
+    });
+    it("titleの取得が出来る", function(){
+        expect(rdf).not.toEqual(null);
+        var parser = factory.createParser(rdf);
+        expect(parser.constructor.name).toEqual("RDFParser");
+
+        var title = parser.getTitle();
+        expect(title).not.toEqual(null);
+    });
+    it("itemの取得が出来る", function(){
+        expect(rdf).not.toEqual(null);
+        var parser = factory.createParser(rdf);
+        expect(parser.constructor.name).toEqual("RDFParser");
+
+        var items = parser.getItems();
+        expect(items).not.toEqual(null);
     });
 });
-
-describe('FeedParserFactory', function () {
-    var fetchDone = false;
-    it('FeedParserFactoryでRSSParserを生成', function () {
-
-        /*
-         console.log("1");
-         Fiber(function(){
-         var fiber = Fiber.current;
-         console.log("2");
-         getXML("http://b.hatena.ne.jp/entrylist/it?sort=hot&threshold=&mode=rss", function(json){
-         fiber.run(json);
-         });
-         var result = Fiber.yield();
-         console.log("3");
-         }).run();
-         console.log("4");
-         ///getXML("http://b.hatena.ne.jp/entrylist/it?sort=hot&threshold=&mode=rss", function(json){
-         //});
-         var parser = factory.createParser("");
-         //expect(array.head()).toEqual(1);
-         */
-    });
-});
-

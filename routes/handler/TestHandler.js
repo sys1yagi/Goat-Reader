@@ -14,7 +14,7 @@ var Module = (function (_super) {
     Module.prototype.handle = function () {
         return function(req,res){
             util.writeHeadHTML(res);
-            var uri = url.parse("http://b.hatena.ne.jp/entrylist/it?sort=hot&threshold=&mode=rss");
+            var uri = url.parse("http://rss.rssad.jp/rss/itmatmarkit/rss.xml?rss");
             http.get({
                 host: uri.hostname,
                 port: 80,
@@ -29,7 +29,7 @@ var Module = (function (_super) {
                         try {
                             var json = parser.toJson(rss);
                             var jsonObject = JSON.parse(json);
-                            //var items = jsonObject["rdf:RDF"]["item"];
+
                             res.write(json);
                             res.end();
                         } catch (e) {
