@@ -3,12 +3,15 @@ var util = require("../../modules/util/RequestExtensions");
 var parser = require('xml2json');
 var http = require('http');
 var url = require('url');
+var $ = require("jquery");
 var Fiber = require("fibers");
 
 var ItemModel = require("../../modules/model/ItemModel");
 var UserItemModelDao = require("../../modules/model/UserItemModelDao");
 var FeedModel = require("../../modules/model/FeedModel");
 var UserFeedModelDao = require("../../modules/model/UserFeedModelDao");
+var FeedParser = require('../../modules/util/FeedParser');
+var factory = FeedParser.FeedParserFactory;
 
 var Module = (function (_super) {
     handler.extends(Module, _super);
@@ -143,24 +146,51 @@ var Module = (function (_super) {
                     rss += chunk;
                 })
                 .on("end", function () {
-                    try {
-                        var json = parser.toJson(rss);
-                        var jsonObject = JSON.parse(json);
-                        var items = jsonObject["rdf:RDF"]["item"];
-                        insertItems(feed, items, function () {
+                    console.log("status:"+resp.statusCode);
+                    if(resp.statusCode === 200){
+                        try {
+                            var json = parser.toJson(rss);
+                            var jsonObject = JSON.parse(json);
+                            var rssParser = factory.createParser(jsonObject);
+                            var items = rssParser.getItems();
+                            insertItems(feed, items, function () {
+                                loadFeeds(feeds.tail(), callback);
+                            });
+                        } catch (e) {
+                            console.log(e);
+                            for(var i in e){
+                                console.log(i+"="+e[i]);
+                            }
                             loadFeeds(feeds.tail(), callback);
-                        });
-                    } catch (e) {
-                        console.log(e);
+                        }
+                    }
+                    else if(resp.statusCode === 301 || resp.statusCode === 302 ){
+                        var redirect = $(rss).find("a");
+                        if(typeof redirect[0] !== "undefined" && redirect[0] !== null && typeof redirect[0].href !== "undefined"){
+                            console.log(redirect[0].href);
+                            feed.url = redirect[0].href;
+                            feeds.push(feed);
+                            console.log(feed);
+                            //feeds.push()
+                        }
+                        else{
+                            console.log("error:"+feed);
+                        }
+                        loadFeeds(feeds.tail(), callback);
+                    }
+                    else{
                         loadFeeds(feeds.tail(), callback);
                     }
                 });
             ;
         }).on('error', function (e) {
-                console.log(e);
+                for(var i in e){
+                    console.log(i+"="+e[i]);
+                }
                 loadFeeds(feeds.tail(), callback);
             });
     }
+    Module.prototype.loadFeeds = loadFeeds;
 
     Module.prototype.handle = function () {
         return function (req, res) {

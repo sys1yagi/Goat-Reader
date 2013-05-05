@@ -54,7 +54,10 @@ var RSSParser = (function (_super) {
         return "not yet implemented.";
     };
     RSSParser.prototype.getItems = function () {
-        return null;
+        if(this.json === null){
+            return null;
+        }
+        return this.json["rss"]["channel"]["item"];
     };
     return RSSParser;
 })(FeedParser);
