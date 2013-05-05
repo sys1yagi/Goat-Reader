@@ -21,7 +21,5 @@ if [ $? -ne 0 ] ; then
 fi
 
 npm install
-cd public
 bower install
-cd ../
 

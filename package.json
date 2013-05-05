@@ -18,8 +18,9 @@
         ,"request":"*"
         ,"twitter-oauth":"*"
         ,"connect-mongo":"*"
-        ,"fibers": "1.0.x"
-        ,"jasmine-node":"*"
         ,"jquery":"*"
+        ,"mocha":"*"
+        ,"should":"*"
+        ,"fibers": "1.0.x"
     }
 }

@@ -1,9 +1,9 @@
 
-which node_modules/.bin/jasmine-node > /dev/null 2>&1
+which node_modules/.bin/mocha > /dev/null 2>&1
 if [ $? -ne 0 ] ; then
-    echo "command not found: jasmine-node"
-    echo "please install jasmine-node. e.g. npm install"
+    echo "command not found: mocha"
+    echo "please install mocha. e.g. npm install"
     exit
 fi
 
-node_modules/.bin/jasmine-node ./spec/*
+node_modules/.bin/mocha -t 1500000 ./spec/*/*

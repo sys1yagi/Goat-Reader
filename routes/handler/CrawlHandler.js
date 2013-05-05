@@ -16,12 +16,12 @@ var Module = (function (_super) {
         _super.apply(this, arguments);
     }
 
-    startDate = null;
+    Module.prototype.startDate = null;
     function start() {
-        startDate = new Date();
+        this.startDate = new Date();
     }
     function end() {
-        return new Date().getTime() - this.startDate.getTime();
+        return +new Date() - this.startDate;
     }
 
     /**
