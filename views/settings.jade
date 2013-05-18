@@ -1,7 +1,6 @@
 extends layout
 block content
-
-    .navbar.navbar-fixed-top.navbar-inverse
+    .navbar.navbar-inverse
         .navbar-inner
             .container-fluid
                 a.btn.btn-navbar(data-toggle='collapse', data-target='.nav-collapse')
@@ -21,7 +20,7 @@ block content
                         li.active
                             a(href='./settings')
                                 | Settings
-    .container-fluid(style="margin-top:50px;")
+    .container-fluid
         .row-fluid
             .span2
                 if  session_token == null
