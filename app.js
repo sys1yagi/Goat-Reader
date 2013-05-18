@@ -6,8 +6,11 @@ var express = require('express')
     , http = require('http')
     , path = require('path')
     , fs = require('fs')
+    , passport = require('passport')
+    , TwitterStrategy = require('passport-twitter')
     , routes = require('./routes')
     , settings = require("./settings")
+
     ;
 var local_port = settings.local_port;
 var app = express();
@@ -38,6 +41,11 @@ app.configure(function () {
         maxAge: new Date(Date.now() + 3600000),
         store: new MongoStore(conf.db)
     }));
+
+
+    app.use(passport.initialize());
+    app.use(passport.session());
+
     app.use(app.router);
     app.use(express.static(path.join(__dirname, 'public')));
 });
@@ -50,22 +58,61 @@ app.configure('development', function () {
 app.get('/', routes.index);
 app.get('/about', routes.about);
 app.get('/settings', routes.settings);
-app.get('/login', routes.login);
+//app.get('/login', routes.login);
 
 var handlers = require("./routes/handlers");
 handlers.initilize(app);
 
 //init twitter oauth
-var twitterAuth = require('twitter-oauth')({
-    domain: settings.auth.twitter.twitterDomain,
-    consumerKey: settings.auth.twitter.twitterConsumerKey,
-    consumerSecret: settings.auth.twitter.twitterConsumerSecret,
-    loginCallback: "http://"+settings.auth.twitter.twitterDomain+"/twitter/sessions/callback",
-    completeCallback:  "http://"+settings.auth.twitter.twitterDomain+"/search/beagles"
+passport.serializeUser(function(user, done){
+    done(null, user);
 });
-app.get('/twitter/sessions/connect', twitterAuth.oauthConnect);
-app.get('/twitter/sessions/callback', twitterAuth.oauthCallback);
-app.get('/twitter/sessions/logout', twitterAuth.logout);
+passport.deserializeUser(function(obj, done){
+    done(null, obj);
+});
+//ここからTwitter認証の記述
+var TWITTER_CONSUMER_KEY = settings.auth.twitter.twitterConsumerKey;
+var TWITTER_CONSUMER_SECRET = settings.auth.twitter.twitterConsumerSecret;
+
+passport.use(new TwitterStrategy.Strategy({
+        consumerKey: TWITTER_CONSUMER_KEY,
+        consumerSecret: TWITTER_CONSUMER_SECRET,
+        callbackURL: "http://127.0.0.1:3001/auth/twitter/callback"
+    },
+    function(token, tokenSecret, profile, done) {
+        passport.session.accessToken = token;
+        passport.session.profile = profile;
+        process.nextTick(function () {
+            return done(null, profile);
+        });
+    }
+));
+
+app.get('/account/twitter', twitterEnsureAuthenticated, routes.index);
+
+app.get('/auth/twitter',
+    passport.authenticate('twitter'),
+    function(req, res){}
+);
+
+app.get('/auth/twitter/callback',
+    passport.authenticate('twitter', { failureRedirect: '/' }),
+    function(req, res) {
+
+        console.log(req.session);
+
+        res.redirect('/');
+    }
+);
+app.get('/logout/twitter', function(req, res){
+    req.logout();
+    res.redirect('/');
+});
+
+function twitterEnsureAuthenticated(req, res, next) {
+    if (req.isAuthenticated()) { return next(); }
+    res.redirect('/');
+};
 
 //start server
 var server = http.createServer(app).listen(app.get('port'), function () {
