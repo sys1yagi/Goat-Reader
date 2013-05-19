@@ -70,10 +70,10 @@ passport.serializeUser(function(user, done){
 passport.deserializeUser(function(obj, done){
     done(null, obj);
 });
-//ここからTwitter認証の記述
+
+//Twitter OAuth
 var TWITTER_CONSUMER_KEY = settings.auth.twitter.twitterConsumerKey;
 var TWITTER_CONSUMER_SECRET = settings.auth.twitter.twitterConsumerSecret;
-
 passport.use(new TwitterStrategy.Strategy({
         consumerKey: TWITTER_CONSUMER_KEY,
         consumerSecret: TWITTER_CONSUMER_SECRET,
@@ -87,19 +87,18 @@ passport.use(new TwitterStrategy.Strategy({
         });
     }
 ));
-
 app.get('/account/twitter', twitterEnsureAuthenticated, routes.index);
-
 app.get('/auth/twitter',
     passport.authenticate('twitter'),
     function(req, res){}
 );
-
 app.get('/auth/twitter/callback',
     passport.authenticate('twitter', { failureRedirect: '/' }),
     function(req, res) {
-
         console.log(req.session);
+
+        //ここでsession tokenを生成する
+        //req.session.session_token
 
         res.redirect('/');
     }
@@ -108,7 +107,6 @@ app.get('/logout/twitter', function(req, res){
     req.logout();
     res.redirect('/');
 });
-
 function twitterEnsureAuthenticated(req, res, next) {
     if (req.isAuthenticated()) { return next(); }
     res.redirect('/');

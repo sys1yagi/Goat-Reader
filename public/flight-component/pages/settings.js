@@ -15,7 +15,6 @@ define(
     ],
     function(load_feed, all_items, import_google_reader_subscriptions){
         function initialize(){
-            console.log("init!");
             $("#feed_list").height($(window).height()-50);
             load_feed.attachTo("#feed_list", {
 
