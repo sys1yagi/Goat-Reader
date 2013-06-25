@@ -78,7 +78,7 @@ var TWITTER_CONSUMER_SECRET = settings.auth.twitter.twitterConsumerSecret;
 passport.use(new TwitterStrategy.Strategy({
         consumerKey: TWITTER_CONSUMER_KEY,
         consumerSecret: TWITTER_CONSUMER_SECRET,
-        callbackURL: "http://" + os.hostname() + ":" + local_port + "/auth/twitter/callback"
+        callbackURL: settings.auth.twitter.callbackURL
     },
     function (token, tokenSecret, profile, done) {
         passport.session.accessToken = token;
