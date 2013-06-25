@@ -3,6 +3,10 @@ Goat-Reader
 
 This is an alternative to Google Reader.
 
+##DEMO
+
+[http://goatreader.sys1yagi.mydns.jp/](http://goatreader.sys1yagi.mydns.jp/)
+
 #Requirement
 
 * Server: [Node.js](http://nodejs.org/)
