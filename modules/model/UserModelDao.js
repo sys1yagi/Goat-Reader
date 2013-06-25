@@ -28,9 +28,7 @@ function getAnonymouseUser(callback) {
         console.log("anonymouse null");
         var user = new UserModel.User();
         user.user_id = "null";
-        user.twitter_token = null;
-        user.session_token = null;
-        user.session_id = null;
+        user.session_token = "null";
         user.session_date = null;
         UserModel.User.create(user, function (err, user) {
             fiber.run([err, user]);
@@ -50,6 +48,7 @@ function getAnonymouseUser(callback) {
  * @param req
  */
 exports.getUser = function (req, callback) {
+    var session_obj = session.getSession(req);
     var session_token = session.getSessionToken(req);
     if (typeof(session_token) === "undefined") {
         //anonymouse
@@ -57,11 +56,39 @@ exports.getUser = function (req, callback) {
         Fiber(getAnonymouseUser).run(callback);
     }
     else {
-        //TODO
-        //user data
-        //UserModel.User.findOne({"session_token"});
-        //session_token
-
-        callback(null);
+        UserModel.User.findOne({"session_token": session_token}, function (err, user) {
+            if (user !== null) {
+                callback(user);
+            }
+            else {
+                Fiber(getAnonymouseUser).run(callback);
+            }
+        });
     }
+}
+
+exports.startSession = function (req, callback) {
+    var session_obj = session.getSession(req);
+    var session_token = session.getSessionToken(req);
+
+    UserModel.User.findOne({"user_id": session_obj.passport.user.username}, function (err, user) {
+        if (user !== null) {
+            console.log("exsits user.:"+session_token);
+            user.session_token = session_token;
+            user.session_date = Date.now();
+            user.save(function (err) {
+                callback(user);
+            });
+        }
+        else {
+            console.log("create user.");
+            var user = new UserModel.User();
+            user.user_id = session_obj.passport.user.username;
+            user.session_token = session_token;
+            user.session_date = Date.now();
+            UserModel.User.create(user, function (err, user) {
+                callback(user);
+            });
+        }
+    });
 }

@@ -16,7 +16,6 @@ var UserSchema = new mongoose.Schema({
     user_id:String
     ,twitter_token:String
     ,session_token:String
-    ,session_id:String
     ,session_date:Date
 });
 var User = db.model('user', UserSchema);

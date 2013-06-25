@@ -13,6 +13,16 @@
 exports.getSessionToken = function (req) {
     return req.session.session_token;
 }
+
+/**
+ *
+ * @param req
+ * @returns {*}
+ */
+exports.getSession = function(req){
+    return req.session;
+}
+
 /**
  *
  * @param req
