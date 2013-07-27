@@ -53,7 +53,7 @@ define(
                         }
                         self.isMarking = false;
                         if(self.attr.loading_id != null){
-                            $(this.attr.loading_id).css("display", "none");
+                            $(self.attr.loading_id).css("display", "none");
                         }
                     }
                 });
