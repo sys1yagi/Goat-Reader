@@ -73,23 +73,27 @@ block content
                                 | Crawl
             .span10
                 .well.well-small
-                    .btn-toolbar.row-fluid
+                    .row-fluid
                         .span10
-                            .btn-group
-                                button.btn.disabled#unread_items_mode 未読
-                                button.btn#all_items_mode 全て
-                                a.btn.dropdown-toggle(data-toggle="dropdown",href="#") 並べ替え
-                                    span.caret
-                                ul.dropdown-menu
-                                    a 新しい順
-                                    a 古い順
-                            a.btn.btn-primary#mark_and_next 既読にして次へ
+                            .btn-toolbar
+                                .btn-group
+                                    button.btn.disabled#unread_items_mode 未読
+                                    button.btn#all_items_mode 全て
+                                    a.btn.dropdown-toggle(data-toggle="dropdown",href="#") 並べ替え
+                                        span.caret
+                                    ul.dropdown-menu
+                                        a 新しい順
+                                        a 古い順
+                                a.btn.btn-primary#mark_and_next 既読にして次へ
+                                a.btn.btn-link#loading(style="display:none")
+                                    img(src="./img/ajax-loader.gif")
                         .span2
-                            .btn-group#view_mode
-                                a.btn.disabled#view_content_mode(style="padding-top:0px;padding-bottom:0px;")
-                                    img(src="img/content.png")
-                                a.btn#view_list_mode(style="padding-top:0px;padding-bottom:0px;")
-                                    img(src="img/list.png")
+                            .btn-toolbar
+                                .btn-group#view_mode
+                                    a.btn.disabled#view_content_mode(style="padding-top:0px;padding-bottom:0px;")
+                                        img(src="img/content.png")
+                                    a.btn#view_list_mode(style="padding-top:0px;padding-bottom:0px;")
+                                        img(src="img/list.png")
                 div#item_list(style="overflow: scroll;border:1px solid #ccc;padding:10px;")
             hr
                 div

@@ -3,7 +3,6 @@
  * User: yagitoshihiro
  * Date: 2013/03/26
  * Time: 16:12
- * To change this template use File | Settings | File Templates.
  */
 'use strict';
 
@@ -16,7 +15,8 @@ define(
 
         function ItemLoad() {
             this.defaultAttrs({
-                load_url: 'marked'
+                load_url: 'marked',
+                "loading_id":null
             });
             this.isMarking = false;
             this.marked = function (items, mark) {
@@ -34,7 +34,11 @@ define(
                 ids+="&mark="+mark;
                 var self = this;
                 this.isMarking = true;
-                //データロード
+
+                if(this.attr.loading_id != null){
+                    $(this.attr.loading_id).css("display", "inline");
+                }
+                //load data
                 $.ajax({
                     type: "GET",
                     url: this.attr.load_url,
@@ -48,6 +52,9 @@ define(
                             self.trigger(document, "loadList");
                         }
                         self.isMarking = false;
+                        if(self.attr.loading_id != null){
+                            $(this.attr.loading_id).css("display", "none");
+                        }
                     }
                 });
             }
@@ -60,7 +67,6 @@ define(
                         }
                     });
                 });
-
                 this.on(document, "item_mark", function(event, items, mark){
                     this.marked(items, mark);
                 });
