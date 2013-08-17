@@ -2,9 +2,9 @@ exports.local_port=3001;
 exports.debug = false;
 exports.auth = {
     twitter:{
-        twitterConsumerKey:"set your twitter app consumer key."
-        ,twitterConsumerSecret:"set your twitter app consumer secret."
-        ,callbackURL:"set your callback url."
+        twitterConsumerKey:"wEyzGs3XdveLuDRYYc0TXw"
+        ,twitterConsumerSecret:"L202XkMnbXCHNcTurnp4E0XJkvIULBIMYRSNw2rzGQ"
+        ,callbackURL:"http://localhost:3001/auth/twitter/callback"
     }
 };
 exports.cronTime = "*/30 * * * *";

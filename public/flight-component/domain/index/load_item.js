@@ -17,7 +17,8 @@ define(
         function ItemLoad(){
             this.defaultAttrs({
                 load_url: 'feeds',
-                default_display_mode:"content" // content | list
+                default_display_mode:"content", // content | list
+                row_count:3
             });
 
             this.items = new Array();
@@ -57,7 +58,7 @@ define(
                 //date
                 var d = new Date(item.date).toString("yyyy/MM/dd hh:mm:ss");
                 var template = '\
-                    <div class="span4" id="{{_id}}">\
+                    <div class="span{{span_row}}" id="{{_id}}">\
                         <h4><a href="{{link}}" target="_blank">{{title}}</a></h4>\
                         <div>\
                             {{date}}\
@@ -67,7 +68,7 @@ define(
                     </div>\
                 ';
                 var fav_id = "fav_"+item._id;
-                var element = $(Hogan.compile(template).render({_id:item._id, link:item.link, title:item.title, date:d, fav_id:fav_id})).append(content);
+                var element = $(Hogan.compile(template).render({_id:item._id, link:item.link, title:item.title, date:d, fav_id:fav_id, span_row:12/this.attr.row_count})).append(content);
                 return element;
             }
             /**
@@ -79,7 +80,7 @@ define(
                 //date
                 var d = new Date(item.date).toString("yyyy/MM/dd hh:mm:ss");
                 var template = '\
-                    <div class="span4" id="{{_id}}">\
+                    <div class="span{{span_row}}" id="{{_id}}">\
                         <h4><a href="{{link}}" target="_blank">{{title}}</a></h4>\
                         <div>\
                             {{date}}\
@@ -88,7 +89,7 @@ define(
                     </div>\
                 ';
                 var fav_id = "fav_"+item._id;
-                var element = $(Hogan.compile(template).render({_id:item._id, link:item.link, title:item.title, date:d, fav_id:fav_id}));
+                var element = $(Hogan.compile(template).render({_id:item._id, link:item.link, title:item.title, date:d, fav_id:fav_id, span_row:12/this.attr.row_count}));
                 return element;
             }
             this.createItem = function(item){
@@ -100,7 +101,7 @@ define(
                 }
             }
             this.getCurrentRow=function(){
-                if(this.current_row == null || this.current_row.children().length === 3){
+                if(this.current_row == null || this.current_row.children().length === this.attr.row_count){
                     if(this.current_row !== null){
                         this.$node.append("<hr/>");
                     }
