@@ -17,13 +17,7 @@ define(
     ],
     function(load_item, all_items, display_mode_change, item_marked){
         function initialize(){
-            var itemList= $("#item_list");
-            function fitHeight(){
-                var offset = itemList.offset();
-                itemList.height($(window).height()-offset.top-50);
-            }
-            $(window).on("resize", fitHeight);
-            fitHeight();
+
             load_item.attachTo("#item_list", {row_count:1, default_display_mode:"list"});
             all_items.attachTo("#all_items", {});
             item_marked.attachTo("#mark_and_next", {"loading_id":"#loading"});
